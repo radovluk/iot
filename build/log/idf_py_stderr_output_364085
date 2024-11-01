@@ -1,0 +1,533 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+[0m
+[0;33m--- 0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081d4a: panic_abort at /home/lukas/esp/esp-idf/components/esp_system/panic.c:463
+0x4008b6ed: esp_system_abort at /home/lukas/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40093509: abort at /home/lukas/esp/esp-idf/components/newlib/abort.c:38
+0x4008b6e3: _esp_error_check_failed at /home/lukas/esp/esp-idf/components/esp_system/esp_err.c:49
+0x400d9853: initialize_lc709203f at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:26 (discriminator 1)
+0x400d9997: getRSOC at /home/lukas/esp/PIR/02/Template_modified/main/gauge.c:48
+0x400d8de3: app_main at /home/lukas/esp/PIR/02/Template_modified/main/main.c:89
+0x40172053: main_task at /home/lukas/esp/esp-idf/components/freertos/app_startup.c:208
+0x4008c239: vPortTaskWrapper at /home/lukas/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0m

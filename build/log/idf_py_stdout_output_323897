@@ -1,0 +1,401 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2024 19:13:47[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=287a8h (165800) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=000387d0 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=000387e0 vaddr=3ffb0000 size=03f94h ( 16276) load[0m
+[0;32mI (173) esp_image: segment 3: paddr=0003c77c vaddr=40080000 size=0389ch ( 14492) load[0m
+[0;32mI (181) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a4064h (671844) map[0m
+[0;32mI (414) esp_image: segment 5: paddr=000e408c vaddr=4008389c size=15f94h ( 90004) load[0m
+[0;32mI (449) esp_image: segment 6: paddr=000fa028 vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (462) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (462) boot: Disabling RNG early entropy source...[0m
+[0;32mI (474) cpu_start: Multicore app[0m
+[0;32mI (483) cpu_start: Pro cpu start user code[0m
+[0;32mI (483) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (483) app_init: Application information:[0m
+[0;32mI (486) app_init: Project name:     PIR[0m
+[0;32mI (490) app_init: App version:      1[0m
+[0;32mI (495) app_init: Compile time:     Oct 31 2024 20:01:10[0m
+[0;32mI (501) app_init: ELF file SHA256:  7ada4bc52d0c70c6...[0m
+[0;32mI (507) app_init: ESP-IDF:          v5.3[0m
+[0;32mI (511) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (516) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (521) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (533) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (539) heap_init: At 3FFB88B8 len 00027748 (157 KiB): DRAM[0m
+[0;32mI (545) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (552) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (558) heap_init: At 40099830 len 000067D0 (25 KiB): IRAM[0m
+[0;32mI (566) spi_flash: detected chip: generic[0m
+[0;32mI (569) spi_flash: flash io: dio[0m
+[0;33mW (573) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (586) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (597) main_task: Started on CPU0[0m
+[0;32mI (607) main_task: Calling app_main()[0m
+[0;32mI (607) progress: [APP] Free memory: 273748 bytes[0m
+[0;32mI (607) progress: [APP] IDF version: v5.3[0m
+[0;32mI (607) progress: MAC address: ec:62:60:bc:e8:18[0m
+[0;31mE (617) i2cdev: Could not write to device [0x0b at 0]: -1 (ESP_FAIL)[0m
+[0;32mI (737) gauge: Power Mode: 0x1[0m
+[0;32mI (737) gauge: APA: 0x2A[0m
+[0;32mI (737) gauge: Battery Profile: 0x1[0m
+[0;32mI (737) gauge: Temp Mode: 0x0[0m
+[0;32mI (737) gauge: Voltage: 3.75	RSOC: 20.0%[0m
+[0;32mI (767) progress: Starting Wifi[0m
+[0;32mI (3487) progress: Starting Clock[0m
+[0;32mI (7487) progress: The current date/time in Germany is: Fri Nov  1 00:28:37 2024[0m
+[0;32mI (7487) progress: Starting MQTT[0m
+[0;32mI (7487) mqtt: Device Key: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODE1MzMsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS81In0.HVn4uZAQRIOvE6ZR16YnU9LhEqBmatBh7w2enEuiLxJt51ievhqYdRFW8DLjGW49zXdXP_u-h1LxRyyfkwrTFXY0fH8__3J4D1dLd3WRlfXyztkmCH846GRwMBoi-DLrXg4OW3BoVt2mGYhauOo4OwixXYNUCT1MfPZEpTb8DpcCbVfYHwEdd1y2WrF5BLguKyIuxUG6qwl2Llcti1porh5D78Onwt-OTiAAMyHlXHYg-DTEJR3qYSI2IuBtvU6jwO5G68BHIxL7Ug8GLbTdE0xtuwUvPKeupwyJPFBVFHTSD1s7p7F7PZhzJ5W6NQq4NibUnDHJNY7GrOXG9anApJpveC05xdKnraueZ41uJrg4leQlDRWTkFyeRPLBsX6Z_5TTA2kj4krEDQR4lmR9zilI1gJQV1h06NYwtO4Gx-48uXzhoo8JdckaxAM6m1mXTPOgGU-U2do3Cs3RhlsceUVTOld5rd0so4C4Ui3_X5TDA8uz8noPxyhxSYPKk4aZ8f80MjNsy2SicCxUv4jVhEH3iIzYi3m_0rFzynIf_oQbbVtkGKGyRjp3EEU-g9v-SvHdf4oYyA6kQ6YFe4IC6rABbH1rUp5jvUpJcsmgPqskbPTfnwZPCxWCRk5Jdc2piV5vHwxhguERu7Sg-fVZ4RIl2Er17FRHzvBZokUYWx8[0m
+[0;32mI (7557) mqtt: [APP] Free memory: 224816 bytes[0m
+[0;32mI (7567) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;32mI (7577) mqtt: Note free memory: 213440 bytes[0m
+[0;32mI (7577) mqtt: Waiting for connection to MQTT
+[0m
+[0;32mI (7717) mqtt: MQTT_EVENT_CONNECTED
+[0m
+[0;32mI (7717) mqtt: Connected to MQTT
+[0m
+[0;32mI (7717) progress: Sending battery status to MQTT[0m
+[0;32mI (7717) mqtt: Sent <{"sensors":[{"name":"battery","values":[{"timestamp":1730417318000, "voltage":3.7, "soc":20.0}]}]}> to topic 1/5/data[0m
+[0;32mI (7737) progress: Not a wakeup from deep sleep[0m
+[0;32mI (7737) progress: Waiting for sensors to become inactive[0m
+[0;32mI (7747) mqtt: MQTT_EVENT_PUBLISHED, msg_id=52160
+[0m
+[0;32mI (11747) progress: Going to sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2024 19:13:47[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=287a8h (165800) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=000387d0 vaddr=3ff80063 size=00008h (     8) [0m
+[0;32mI (161) esp_image: segment 2: paddr=000387e0 vaddr=3ffb0000 size=03f94h ( 16276) load[0m
+[0;32mI (173) esp_image: segment 3: paddr=0003c77c vaddr=40080000 size=0389ch ( 14492) load[0m
+[0;32mI (181) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a4064h (671844) map[0m
+[0;32mI (414) esp_image: segment 5: paddr=000e408c vaddr=4008389c size=15f94h ( 90004) load[0m
+[0;32mI (449) esp_image: segment 6: paddr=000fa028 vaddr=400c0000 size=00064h (   100) [0m
+[0;32mI (462) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (462) boot: Disabling RNG early entropy source...[0m
+[0;32mI (474) cpu_start: Multicore app[0m
+[0;32mI (483) cpu_start: Pro cpu start user code[0m
+[0;32mI (483) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (483) app_init: Application information:[0m
+[0;32mI (486) app_init: Project name:     PIR[0m
+[0;32mI (490) app_init: App version:      1[0m
+[0;32mI (495) app_init: Compile time:     Oct 31 2024 20:01:10[0m
+[0;32mI (501) app_init: ELF file SHA256:  7ada4bc52d0c70c6...[0m
+[0;32mI (506) app_init: ESP-IDF:          v5.3[0m
+[0;32mI (511) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (516) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (521) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (533) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (539) heap_init: At 3FFB88B8 len 00027748 (157 KiB): DRAM[0m
+[0;32mI (545) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (551) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (558) heap_init: At 40099830 len 000067D0 (25 KiB): IRAM[0m
+[0;32mI (566) spi_flash: detected chip: generic[0m
+[0;32mI (569) spi_flash: flash io: dio[0m
+[0;33mW (573) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (586) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (597) main_task: Started on CPU0[0m
+[0;32mI (607) main_task: Calling app_main()[0m
+[0;32mI (607) progress: [APP] Free memory: 273748 bytes[0m
+[0;32mI (607) progress: [APP] IDF version: v5.3[0m
+[0;32mI (607) progress: MAC address: ec:62:60:bc:e8:18[0m
+[0;31mE (617) i2cdev: Could not write to device [0x0b at 0]: -1 (ESP_FAIL)[0m
+[0;32mI (737) gauge: Power Mode: 0x1[0m
+[0;32mI (737) gauge: APA: 0x2A[0m
+[0;32mI (737) gauge: Battery Profile: 0x1[0m
+[0;32mI (737) gauge: Temp Mode: 0x0[0m
+[0;32mI (737) gauge: Voltage: 3.75	RSOC: 21.0%[0m
+[0;32mI (767) progress: Starting Wifi[0m
+[0;32mI (10657) progress: Starting Clock[0m
+[0;32mI (28657) progress: The current date/time in Germany is: Fri Nov  1 00:29:14 2024[0m
+[0;32mI (28657) progress: Starting MQTT[0m
+[0;32mI (28657) mqtt: Device Key: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODE1MzMsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS81In0.HVn4uZAQRIOvE6ZR16YnU9LhEqBmatBh7w2enEuiLxJt51ievhqYdRFW8DLjGW49zXdXP_u-h1LxRyyfkwrTFXY0fH8__3J4D1dLd3WRlfXyztkmCH846GRwMBoi-DLrXg4OW3BoVt2mGYhauOo4OwixXYNUCT1MfPZEpTb8DpcCbVfYHwEdd1y2WrF5BLguKyIuxUG6qwl2Llcti1porh5D78Onwt-OTiAAMyHlXHYg-DTEJR3qYSI2IuBtvU6jwO5G68BHIxL7Ug8GLbTdE0xtuwUvPKeupwyJPFBVFHTSD1s7p7F7PZhzJ5W6NQq4NibUnDHJNY7GrOXG9anApJpveC05xdKnraueZ41uJrg4leQlDRWTkFyeRPLBsX6Z_5TTA2kj4krEDQR4lmR9zilI1gJQV1h06NYwtO4Gx-48uXzhoo8JdckaxAM6m1mXTPOgGU-U2do3Cs3RhlsceUVTOld5rd0so4C4Ui3_X5TDA8uz8noPxyhxSYPKk4aZ8f80MjNsy2SicCxUv4jVhEH3iIzYi3m_0rFzynIf_oQbbVtkGKGyRjp3EEU-g9v-SvHdf4oYyA6kQ6YFe4IC6rABbH1rUp5jvUpJcsmgPqskbPTfnwZPCxWCRk5Jdc2piV5vHwxhguERu7Sg-fVZ4RIl2Er17FRHzvBZokUYWx8[0m
+[0;32mI (28727) mqtt: [APP] Free memory: 225636 bytes[0m
+[0;32mI (28737) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (28737) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (28747) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (28747) mqtt_client: Error transport connect[0m
+[0;32mI (28757) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (28757) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (28767) mqtt: Note free memory: 214892 bytes[0m
+[0;32mI (28767) mqtt: Waiting for connection to MQTT
+[0m
+[0;32mI (38767) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (38767) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (38767) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (38767) mqtt_client: Error transport connect[0m
+[0;32mI (38777) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (38777) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (48787) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (48787) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (48787) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (48787) mqtt_client: Error transport connect[0m
+[0;32mI (48797) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (48797) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (58807) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (58807) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (58807) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (58807) mqtt_client: Error transport connect[0m
+[0;32mI (58817) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (58817) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (68827) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (68827) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (68827) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (68827) mqtt_client: Error transport connect[0m
+[0;32mI (68837) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (68837) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (78847) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (78847) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (78847) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (78847) mqtt_client: Error transport connect[0m
+[0;32mI (78857) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (78857) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (88867) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (88867) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (88867) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (88867) mqtt_client: Error transport connect[0m
+[0;32mI (88877) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (88877) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (98887) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (98887) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (98887) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (98887) mqtt_client: Error transport connect[0m
+[0;32mI (98897) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (98897) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (108907) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (108907) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (108907) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (108907) mqtt_client: Error transport connect[0m
+[0;32mI (108917) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (108917) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (118927) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (118927) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (118927) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (118927) mqtt_client: Error transport connect[0m
+[0;32mI (118937) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (118937) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (128947) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (128947) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (128947) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (128947) mqtt_client: Error transport connect[0m
+[0;32mI (128957) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (128957) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (138967) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (138967) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (138967) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (138967) mqtt_client: Error transport connect[0m
+[0;32mI (138977) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (138977) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (148987) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (148987) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (148987) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (148987) mqtt_client: Error transport connect[0m
+[0;32mI (148997) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (148997) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (159007) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (159007) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (159007) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (159007) mqtt_client: Error transport connect[0m
+[0;32mI (159017) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (159017) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (169027) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (169027) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (169027) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (169027) mqtt_client: Error transport connect[0m
+[0;32mI (169037) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (169037) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (179047) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (179047) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (179047) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (179047) mqtt_client: Error transport connect[0m
+[0;32mI (179057) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (179057) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (189067) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (189067) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (189067) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (189067) mqtt_client: Error transport connect[0m
+[0;32mI (189077) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (189077) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (199087) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (199087) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (199087) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (199087) mqtt_client: Error transport connect[0m
+[0;32mI (199097) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (199097) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (209107) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (209107) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (209107) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (209107) mqtt_client: Error transport connect[0m
+[0;32mI (209117) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (209117) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (219127) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (219127) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (219127) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (219127) mqtt_client: Error transport connect[0m
+[0;32mI (219137) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (219137) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (229147) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (229147) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (229147) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (229147) mqtt_client: Error transport connect[0m
+[0;32mI (229157) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (229157) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (239167) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (239167) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (239167) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (239167) mqtt_client: Error transport connect[0m
+[0;32mI (239177) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (239177) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (249187) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (249187) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (249187) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (249187) mqtt_client: Error transport connect[0m
+[0;32mI (249197) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (249197) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (259207) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (259207) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (259207) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (259207) mqtt_client: Error transport connect[0m
+[0;32mI (259217) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (259217) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (269227) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (269227) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (269227) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (269227) mqtt_client: Error transport connect[0m
+[0;32mI (269237) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (269237) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (279247) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (279247) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (279247) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (279247) mqtt_client: Error transport connect[0m
+[0;32mI (279257) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (279257) mqtt: MQTT_EVENT_DISCONNECTED
+[0m

@@ -1,0 +1,169 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2024 19:13:47[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=287a8h (165800) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=000387d0 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=000387e0 vaddr=3ffb0000 size=03f94h ( 16276) load[0m
+[0;32mI (173) esp_image: segment 3: paddr=0003c77c vaddr=40080000 size=0389ch ( 14492) load[0m
+[0;32mI (181) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a40d8h (671960) map[0m
+[0;32mI (414) esp_image: segment 5: paddr=000e4100 vaddr=4008389c size=15f94h ( 90004) load[0m
+[0;32mI (449) esp_image: segment 6: paddr=000fa09c vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (462) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (462) boot: Disabling RNG early entropy source...[0m
+[0;32mI (474) cpu_start: Multicore app[0m
+[0;32mI (483) cpu_start: Pro cpu start user code[0m
+[0;32mI (483) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (483) app_init: Application information:[0m
+[0;32mI (486) app_init: Project name:     PIR[0m
+[0;32mI (490) app_init: App version:      1[0m
+[0;32mI (495) app_init: Compile time:     Oct 31 2024 20:01:10[0m
+[0;32mI (501) app_init: ELF file SHA256:  8a82777dfae172d7...[0m
+[0;32mI (507) app_init: ESP-IDF:          v5.3[0m
+[0;32mI (511) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (516) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (521) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (533) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (539) heap_init: At 3FFB88B8 len 00027748 (157 KiB): DRAM[0m
+[0;32mI (545) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (551) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (558) heap_init: At 40099830 len 000067D0 (25 KiB): IRAM[0m
+[0;32mI (566) spi_flash: detected chip: generic[0m
+[0;32mI (569) spi_flash: flash io: dio[0m
+[0;33mW (573) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (586) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (597) main_task: Started on CPU0[0m
+[0;32mI (607) main_task: Calling app_main()[0m
+[0;32mI (607) progress: [APP] Free memory: 273748 bytes[0m
+[0;32mI (607) progress: [APP] IDF version: v5.3[0m
+[0;32mI (607) progress: MAC address: ec:62:60:bc:e8:50[0m
+[0;32mI (617) MAC Address: Device identified as LIVING ROOM.[0m
+[0;32mI (617) Device Info: DEVICE_ID: 4[0m
+[0;32mI (627) Device Info: DEVICE_TOPIC: 1/4/data[0m
+[0;32mI (627) Device Info: DEVICE_KEY: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODAxNTYsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS80In0.pz7e__yvBeb-xrVAXNlY_6-GPg0PBvrMOzxsG9re_ohsAMgKnVddBFwaaRB15P07J-D4_s_1KpHDRNw0trIfXdnPTFaV0ibKzk2C-j6EGXlBRFi7POP0p_QMobHk5DtI54j9fpbxtAvl7uwQCWJlBY4w0rmynlJrEN5TRvu2veMtvN8HPOoYpw4k1L_jif_w0Jli-MM-aDhhuRFUO07hwqV1qoxArm0xcd4EW0u0OWM0Uvs9vW51Vr_BDb7-TgvywJQO9R8DCjXk3BBPG8BYavinuA4fTTC5oKzJRyRI3_zwv7DHaXMT3eD-tRMKxqvdBsaxpTG0UyCIQ9HrefKTVaE8JD6so1fbGdsMQ3qvjKtSamQYPFWMFhUGj7qmEwzjIqXBXdGEO1j7YTh3jG1fDaXXIvVSffj2_Hl1hCEwuiaPxh7DRQIhZVNV0Gv2IXq1_s7hB6byjXnUdQyJtUZS8xfdCPEP3YHDPe14fRUBZJDJrYsg2XPRGkLrpcPlIDSgDgv9nS_vO19lwX3QN-LmtJ7P2mYgVnG0ELljRAKtZvYhcKfoSyE6R1Amw5XlAiV5OcftdpayJLlqmMStQjakQLuxQVI6KALcCNkHvbOAM5zcAbSCgRNSdZppxlGzePu15ngtBZjL5xSuIEW6Y5NTM6E1v24kUhWUvvi9p42c3r0[0m
+[0;31mE (707) i2cdev: Could not write to device [0x0b at 0]: -1 (ESP_FAIL)[0m
+[0;32mI (817) gauge: Power Mode: 0x1[0m
+[0;32mI (817) gauge: APA: 0x2A[0m
+[0;32mI (817) gauge: Battery Profile: 0x1[0m
+[0;32mI (817) gauge: Temp Mode: 0x0[0m
+[0;32mI (827) gauge: Voltage: 4.30	RSOC: 100.0%[0m
+[0;32mI (847) progress: Starting Wifi[0m
+[0;32mI (867) wifi:wifi driver task: 3ffc17e0, prio:23, stack:6656, core=0[0m
+[0;32mI (877) wifi:wifi firmware version: 0caa81945[0m
+[0;32mI (877) wifi:wifi certification version: v7.0[0m
+[0;32mI (877) wifi:config NVS flash: enabled[0m
+[0;32mI (877) wifi:config nano formating: disabled[0m
+[0;32mI (877) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (887) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (887) wifi:Init management short buffer num: 32[0m
+[0;32mI (897) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (897) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (907) wifi:Init static rx buffer num: 10[0m
+[0;32mI (907) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (907) wifi_init: rx ba win: 6[0m
+[0;32mI (917) wifi_init: accept mbox: 6[0m
+[0;32mI (917) wifi_init: tcpip mbox: 32[0m
+[0;32mI (917) wifi_init: udp mbox: 6[0m
+[0;32mI (927) wifi_init: tcp mbox: 6[0m
+[0;32mI (927) wifi_init: tcp tx win: 5744[0m
+[0;32mI (937) wifi_init: tcp rx win: 5744[0m
+[0;32mI (937) wifi_init: tcp mss: 1440[0m
+[0;32mI (937) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (947) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (957) phy_init: phy_version 4830,54550f7,Jun 20 2024,14:22:08[0m
+[0;32mI (1027) wifi:mode : sta (ec:62:60:bc:e8:50)[0m
+[0;32mI (1027) wifi:enable tsf[0m
+[0;32mI (1037) wifi: wifi_init_sta finished.[0m
+[0;32mI (1047) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1047) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (5817) wifi:state: auth -> init (0x200)[0m
+[0;32mI (5817) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (5817) wifi: retry to connect to the AP[0m
+[0;32mI (5817) wifi: connect to the AP fail[0m
+[0;32mI (8237) wifi: retry to connect to the AP[0m
+[0;32mI (8237) wifi: connect to the AP fail[0m
+[0;32mI (8237) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (8237) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (9827) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (9837) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (9867) wifi:connected with JH54Gast, aid = 1, channel 6, BW20, bssid = 3e:a6:2f:c7:d1:de[0m
+[0;32mI (9867) wifi:security: WPA3-SAE, phy: bgn, rssi: -65[0m
+[0;32mI (9867) wifi:pm start, type: 1[0m
+
+[0;32mI (9867) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (9877) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (10887) esp_netif_handlers: sta ip: 192.168.179.49, mask: 255.255.255.0, gw: 192.168.179.1[0m
+[0;32mI (10887) wifi: got ip:192.168.179.49[0m
+[0;32mI (10887) wifi: connected[0m
+[0;32mI (10887) progress: Starting Clock[0m
+[0;32mI (10897) sntp: Waiting for system time to be set... (1/20)[0m
+[0;32mI (11237) wifi:state: run -> init (0x24fdc0)[0m
+[0;32mI (11237) wifi:pm stop, total sleep time: 462252 us / 1369566 us[0m
+
+[0;32mI (11237) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (12897) sntp: Waiting for system time to be set... (2/20)[0m
+[0;32mI (14897) sntp: Waiting for system time to be set... (3/20)[0m
+[0;32mI (16897) sntp: Waiting for system time to be set... (4/20)[0m
+[0;32mI (18897) sntp: Waiting for system time to be set... (5/20)[0m
+[0;32mI (20897) sntp: Waiting for system time to be set... (6/20)[0m
+[0;32mI (22897) sntp: Waiting for system time to be set... (7/20)[0m
+[0;32mI (24897) sntp: Waiting for system time to be set... (8/20)[0m
+[0;32mI (26897) sntp: Waiting for system time to be set... (9/20)[0m
+[0;32mI (28897) sntp: Waiting for system time to be set... (10/20)[0m
+[0;32mI (30897) sntp: Waiting for system time to be set... (11/20)[0m
+[0;32mI (32897) sntp: Waiting for system time to be set... (12/20)[0m
+[0;32mI (34897) sntp: Waiting for system time to be set... (13/20)[0m
+[0;32mI (36897) sntp: Waiting for system time to be set... (14/20)[0m
+[0;32mI (38897) sntp: Waiting for system time to be set... (15/20)[0m
+[0;32mI (40897) sntp: Waiting for system time to be set... (16/20)[0m
+[0;32mI (42897) sntp: Waiting for system time to be set... (17/20)[0m
+[0;32mI (44897) sntp: Waiting for system time to be set... (18/20)[0m
+[0;32mI (46897) sntp: Waiting for system time to be set... (19/20)[0m
+[0;32mI (48897) progress: The current date/time in Germany is: Thu Jan  1 01:00:48 1970[0m
+[0;32mI (48897) progress: Starting MQTT[0m
+[0;32mI (48897) mqtt: Device Key: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODAxNTYsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS80In0.pz7e__yvBeb-xrVAXNlY_6-GPg0PBvrMOzxsG9re_ohsAMgKnVddBFwaaRB15P07J-D4_s_1KpHDRNw0trIfXdnPTFaV0ibKzk2C-j6EGXlBRFi7POP0p_QMobHk5DtI54j9fpbxtAvl7uwQCWJlBY4w0rmynlJrEN5TRvu2veMtvN8HPOoYpw4k1L_jif_w0Jli-MM-aDhhuRFUO07hwqV1qoxArm0xcd4EW0u0OWM0Uvs9vW51Vr_BDb7-TgvywJQO9R8DCjXk3BBPG8BYavinuA4fTTC5oKzJRyRI3_zwv7DHaXMT3eD-tRMKxqvdBsaxpTG0UyCIQ9HrefKTVaE8JD6so1fbGdsMQ3qvjKtSamQYPFWMFhUGj7qmEwzjIqXBXdGEO1j7YTh3jG1fDaXXIvVSffj2_Hl1hCEwuiaPxh7DRQIhZVNV0Gv2IXq1_s7hB6byjXnUdQyJtUZS8xfdCPEP3YHDPe14fRUBZJDJrYsg2XPRGkLrpcPlIDSgDgv9nS_vO19lwX3QN-LmtJ7P2mYgVnG0ELljRAKtZvYhcKfoSyE6R1Amw5XlAiV5OcftdpayJLlqmMStQjakQLuxQVI6KALcCNkHvbOAM5zcAbSCgRNSdZppxlGzePu15ngtBZjL5xSuIEW6Y5NTM6E1v24kUhWUvvi9p42c3r0[0m
+[0;32mI (48967) mqtt: [APP] Free memory: 225592 bytes[0m
+[0;32mI (48977) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (48977) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (48987) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (48987) mqtt_client: Error transport connect[0m
+[0;32mI (48997) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (48997) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
+[0;32mI (49007) mqtt: Note free memory: 214852 bytes[0m
+[0;32mI (49007) mqtt: Waiting for connection to MQTT
+[0m
+[0;32mI (59007) mqtt: MQTT_EVENT_BEFORE_CONNECT
+[0m
+[0;31mE (59007) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (59007) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (59007) mqtt_client: Error transport connect[0m
+[0;32mI (59017) mqtt: MQTT_EVENT_ERROR
+[0m
+[0;32mI (59017) mqtt: MQTT_EVENT_DISCONNECTED
+[0m
