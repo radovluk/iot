@@ -1,0 +1,51 @@
+# Ignore build directory
+build/
+
+# Ignore sensitive tokens
+grafana-token
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore old SDK configuration files
+sdkconfig.old
+
+# Ignore SDK configuration backup files
+sdkconfig.*
+
+# Ignore log files
+*.log
+
+# Ignore core dumps and debug files
+*.core
+*.dmp
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore compiled object files
+*.o
+*.out
+
+# Ignore dependency files
+*.d
+
+# Ignore ESP-IDF generated files
+*.bin
+*.elf
+*.map
+
+# Ignore CMake cache files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ignore NVS partition files
+*.partition
+
+# Ignore other generated files
+flash_project_args
+build.log
