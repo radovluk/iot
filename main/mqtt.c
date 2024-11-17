@@ -1,29 +1,33 @@
+// Standard Libraries
 #include <stdio.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
-#include "esp_wifi.h"
+
+// ESP-IDF Core Components
 #include "esp_system.h"
-#include "nvs_flash.h"
+#include "esp_wifi.h"
 #include "esp_event.h"
 #include "esp_netif.h"
+#include "esp_log.h"
+#include "nvs_flash.h"
 
+// FreeRTOS Headers
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 #include "freertos/queue.h"
 #include "freertos/event_groups.h"
 
+// LWIP Libraries
 #include "lwip/sockets.h"
 #include "lwip/dns.h"
 #include "lwip/netdb.h"
 
-#include "esp_log.h"
+// Project-Specific Headers
 #include "mqtt_client.h"
 #include "main.h"
 #include "gauge.h"
-
-#include "device_config.h"
 
 
 
@@ -110,19 +114,19 @@ void sendPIReventToMQTT(void) {
   char msg[150];
   time(&now);
 
-    // Define room_id based on device location
-    const char* room_id;
+  // Define room_id based on device location
+  const char* room_id;
+  // Assign the room_id based on DEVICE_ID
+  if (strcmp(DEVICE_ID, "4") == 0) {
+      room_id = "livingroombedarea";
+  } else if (strcmp(DEVICE_ID, "5") == 0) {
+      room_id = "kitchen";
+  } else if (strcmp(DEVICE_ID, "3") == 0) {
+      room_id = "bathroom";
+  } else {
+      room_id = "unknown";  // Default or fallback room ID
+  }
 
-    // Assign the room_id based on DEVICE_ID
-    if (strcmp(DEVICE_ID, "4") == 0) {
-        room_id = "livingroombedarea";
-    } else if (strcmp(DEVICE_ID, "5") == 0) {
-        room_id = "kitchen";
-    } else if (strcmp(DEVICE_ID, "3") == 0) {
-        room_id = "bathroom";
-    } else {
-        room_id = "unknown";  // Default or fallback room ID
-    }
   // Format the message with the correct room ID
   int size = snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"PIR\",\"values\":[{\"timestamp\":%llu, \"roomID\":\"%s\"}]}]}", 
                       (unsigned long long)(now * 1000), room_id);

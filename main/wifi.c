@@ -38,21 +38,9 @@ static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_
   }
 }
 
-// void unregister_event_handler(void){
-//   esp_err_t ret;
-
-//   ret = esp_event_handler_instance_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, instance_got_ip);
-
-//   ret = esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, instance_any_id);
-
-//   vEventGroupDelete(s_wifi_event_group);
-
-//   return ret;
-// }
 
 void finish_wifi(void){
   esp_wifi_disconnect();
-  // esp_wifi_stop();
 }
 
 void start_wifi(void) {
@@ -78,6 +66,10 @@ void start_wifi(void) {
               .pmf_cfg = {.capable = true, .required = false},
           },
   };
+  ESP_LOGI("connecting to:", EXAMPLE_ESP_WIFI_SSID);
+  ESP_LOGI("wifi", EXAMPLE_ESP_WIFI_SSID);
+  ESP_LOGI("wifi", EXAMPLE_ESP_WIFI_PASS);
+
   ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
   ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
   ESP_ERROR_CHECK(esp_wifi_start());
@@ -92,6 +84,13 @@ void start_wifi(void) {
    * happened. */
   if (bits & WIFI_CONNECTED_BIT) {
     ESP_LOGI("wifi", "connected");
+
+     // Print IP address
+    esp_netif_ip_info_t ip_info;
+    esp_netif_t* netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF"); // Get default STA network interface
+    esp_netif_get_ip_info(netif, &ip_info);
+    ESP_LOGI("wifi", "IP Address: " IPSTR, IP2STR(&ip_info.ip));
+    // End of the modified part
   } else if (bits & WIFI_FAIL_BIT) {
     ESP_LOGI("wifi", "Failed to connect");
     esp_restart();

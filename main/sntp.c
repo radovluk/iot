@@ -11,12 +11,10 @@
 
 
 
-
 void time_sync_notification_cb(struct timeval *tv)
 {
     ESP_LOGI("sntp", "Notification of a time synchronization event");
 }
-
 
 
 void start_clock(void)
