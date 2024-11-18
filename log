@@ -1,0 +1,1645 @@
+Executing action: all (aliases: build)
+Running ninja in directory /home/lukas/esp/PIR/02/Template_modified/build
+Executing "ninja all"...
+[1/9] Performing build step for 'bootloader'
+[1/1] cd /home/lukas/esp/PIR/02/Template_modified/build/bootloader/esp-idf/esptool_py && /home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python /home/lukas/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/lukas/esp/PIR/02/Template_modified/build/bootloader/bootloader.bin
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/rtc_wake_stub.c.obj
+[5/9] Linking C static library esp-idf/main/libmain.a
+[6/9] Generating ld/sections.ld
+[7/9] Linking CXX executable PIR.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/lukas/esp/PIR/02/Template_modified/build/PIR.bin
+[9/9] cd /home/lukas/esp/PIR/02/Template_modified/build/esp-idf/esptool_py && /home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python /home/lukas/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/lukas/esp/PIR/02/Template_modified/build/partition_table/partition-table.bin /home/lukas/esp/PIR/02/Template_modified/build/PIR.bin
+PIR.bin binary size 0x41b70 bytes. Smallest app partition is 0x177000 bytes. 0x135490 bytes (82%) free.
+Executing action: flash
+Serial port /dev/ttyS9
+/dev/ttyS9 failed to connect: Could not open /dev/ttyS9, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS8
+/dev/ttyS8 failed to connect: Could not open /dev/ttyS8, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS7
+/dev/ttyS7 failed to connect: Could not open /dev/ttyS7, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS6
+/dev/ttyS6 failed to connect: Could not open /dev/ttyS6, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS5
+/dev/ttyS5 failed to connect: Could not open /dev/ttyS5, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS4
+/dev/ttyS4 failed to connect: Could not open /dev/ttyS4, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS31
+/dev/ttyS31 failed to connect: Could not open /dev/ttyS31, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS30
+/dev/ttyS30 failed to connect: Could not open /dev/ttyS30, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS3
+/dev/ttyS3 failed to connect: Could not open /dev/ttyS3, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS29
+/dev/ttyS29 failed to connect: Could not open /dev/ttyS29, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS28
+/dev/ttyS28 failed to connect: Could not open /dev/ttyS28, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS27
+/dev/ttyS27 failed to connect: Could not open /dev/ttyS27, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS26
+/dev/ttyS26 failed to connect: Could not open /dev/ttyS26, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS25
+/dev/ttyS25 failed to connect: Could not open /dev/ttyS25, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS24
+/dev/ttyS24 failed to connect: Could not open /dev/ttyS24, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS23
+/dev/ttyS23 failed to connect: Could not open /dev/ttyS23, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS22
+/dev/ttyS22 failed to connect: Could not open /dev/ttyS22, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS21
+/dev/ttyS21 failed to connect: Could not open /dev/ttyS21, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS20
+/dev/ttyS20 failed to connect: Could not open /dev/ttyS20, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS2
+/dev/ttyS2 failed to connect: Could not open /dev/ttyS2, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS19
+/dev/ttyS19 failed to connect: Could not open /dev/ttyS19, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS18
+/dev/ttyS18 failed to connect: Could not open /dev/ttyS18, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS17
+/dev/ttyS17 failed to connect: Could not open /dev/ttyS17, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS16
+/dev/ttyS16 failed to connect: Could not open /dev/ttyS16, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS15
+/dev/ttyS15 failed to connect: Could not open /dev/ttyS15, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS14
+/dev/ttyS14 failed to connect: Could not open /dev/ttyS14, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS13
+/dev/ttyS13 failed to connect: Could not open /dev/ttyS13, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS12
+/dev/ttyS12 failed to connect: Could not open /dev/ttyS12, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS11
+/dev/ttyS11 failed to connect: Could not open /dev/ttyS11, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS10
+/dev/ttyS10 failed to connect: Could not open /dev/ttyS10, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS1
+/dev/ttyS1 failed to connect: Could not open /dev/ttyS1, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS0
+/dev/ttyS0 failed to connect: Could not open /dev/ttyS0, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyACM0
+Connecting.....
+Detecting chip type... Unsupported detection protocol, switching and trying again...
+Connecting.....
+Detecting chip type... ESP32
+Running ninja in directory /home/lukas/esp/PIR/02/Template_modified/build
+Executing "ninja flash"...
+[1/5] cd /home/lukas/esp/PIR/02/Template_modified/build/esp-idf/esptool_py && /home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python /home/lukas/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/lukas/esp/PIR/02/Template_modified/build/partition_table/partition-table.bin /home/lukas/esp/PIR/02/Template_modified/build/PIR.bin
+PIR.bin binary size 0x41b70 bytes. Smallest app partition is 0x177000 bytes. 0x135490 bytes (82%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/lukas/esp/PIR/02/Template_modified/build/bootloader/esp-idf/esptool_py && /home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python /home/lukas/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/lukas/esp/PIR/02/Template_modified/build/bootloader/bootloader.bin
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /home/lukas/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/lukas/esp/esp-idf -D "SERIAL_TOOL=/home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python;;/home/lukas/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/lukas/esp/PIR/02/Template_modified/build -P /home/lukas/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 PIR.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyACM0
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: ec:62:60:bc:e8:18
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00051fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 26752 bytes to 16353...
+Writing at 0x00001000... (100 %)
+Wrote 26752 bytes (16353 compressed) at 0x00001000 in 0.9 seconds (effective 240.0 kbit/s)...
+Hash of data verified.
+Compressed 269168 bytes to 142517...
+Writing at 0x00010000... (11 %)
+Writing at 0x0001bd35... (22 %)
+Writing at 0x00023c97... (33 %)
+Writing at 0x00029c3d... (44 %)
+Writing at 0x0002f7a7... (55 %)
+Writing at 0x000397d9... (66 %)
+Writing at 0x000413c8... (77 %)
+Writing at 0x00046f8b... (88 %)
+Writing at 0x0004d3e1... (100 %)
+Wrote 269168 bytes (142517 compressed) at 0x00010000 in 3.4 seconds (effective 642.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 325.9 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Executing action: monitor
+Running idf_monitor in directory /home/lukas/esp/PIR/02/Template_modified
+Executing "/home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python /home/lukas/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/lukas/esp/PIR/02/Template_modified/build/PIR.elf -m '/home/lukas/.espressif/python_env/idf5.3_py3.12_env/bin/python' '/home/lukas/esp/esp-idf/tools/idf.py'"...
+�x�x�� � x� � xxxx �x�x�x�� � x� � x �xx �x�x�x�� � x� � x� x�x��oad[0m
+[0;32mI (133) esp_image: segment 3: pad�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2024 19:13:47[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0e50ch ( 58636) map[0m
+[0;32mI (124) esp_image: segment 1: paddr=0001e534 vaddr=3ff804a1 size=00008h (     8) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001e544 vaddr=3ffb0000 size=01ad4h (  6868) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=20058h (131160) map[0m
+[0;32mI (183) esp_image: segment 4: paddr=00040080 vaddr=3ffb1ad4 size=00aa8h (  2728) load[0m
+[0;32mI (185) esp_image: segment 5: paddr=00040b30 vaddr=40080000 size=107e0h ( 67552) load[0m
+[0;32mI (216) esp_image: segment 6: paddr=00051318 vaddr=400c0000 size=004a4h (  1188) load[0m
+[0;32mI (216) esp_image: segment 7: paddr=000517c4 vaddr=50000000 size=00388h (   904) load[0m
+[0;32mI (231) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (231) boot: Disabling RNG early entropy source...[0m
+[0;32mI (244) cpu_start: Multicore app[0m
+[0;32mI (253) cpu_start: Pro cpu start user code[0m
+[0;32mI (253) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (256) app_init: Project name:     PIR[0m
+[0;32mI (261) app_init: App version:      b83fdf1-dirty[0m
+[0;32mI (266) app_init: Compile time:     Nov 17 2024 14:10:37[0m
+[0;32mI (272) app_init: ELF file SHA256:  cc3dae820e0549b5...[0m
+[0;32mI (278) app_init: ESP-IDF:          v5.3[0m
+[0;32mI (282) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (287) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (292) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (297) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (304) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (310) heap_init: At 3FFB2FD8 len 0002D028 (180 KiB): DRAM[0m
+[0;32mI (316) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (323) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (329) heap_init: At 400907E0 len 0000F820 (62 KiB): IRAM[0m
+[0;32mI (337) spi_flash: detected chip: generic[0m
+[0;32mI (340) spi_flash: flash io: dio[0m
+[0;33mW (344) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (357) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (379) pm: Frequency switching config: CPU_MAX: 160, APB_MAX: 80, APB_MIN: 40, Light sleep: DISABLED[0m
+[0;32mI (380) main_task: Started on CPU0[0m
+[0;32mI (390) main_task: Calling app_main()[0m
+[0;32mI (390) progress: Booting the main app[0m
+[0;32mI (390) pm: Frequency switching config: CPU_MAX: 240, APB_MAX: 240, APB_MIN: 80, Light sleep: DISABLED[0m
+[0;32mI (400) CPU_FREQ: Current CPU frequency: 240 MHz[0m
+[0;32mI (400) progress: [APP] Free memory: 296500 bytes[0m
+[0;32mI (410) progress: [APP] IDF version: v5.3[0m
+[0;32mI (410) *: ********** Device identified as Kitchen. **********[0m
+[0;32mI (420) *: DEVICE_ID: 5[0m
+[0;32mI (420) *: DEVICE_TOPIC: 1/5/data[0m
+[0;32mI (430) *: DEVICE_KEY: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODE1MzMsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS81In0.HVn4uZAQRIOvE6ZR16YnU9LhEqBmatBh7w2enEuiLxJt51ievhqYdRFW8DLjGW49zXdXP_u-h1LxRyyfkwrTFXY0fH8__3J4D1dLd3WRlfXyztkmCH846GRwMBoi-DLrXg4OW3BoVt2mGYhauOo4OwixXYNUCT1MfPZEpTb8DpcCbVfYHwEdd1y2WrF5BLguKyIuxUG6qwl2Llcti1porh5D78Onwt-OTiAAMyHlXHYg-DTEJR3qYSI2IuBtvU6jwO5G68BHIxL7Ug8GLbTdE0xtuwUvPKeupwyJPFBVFHTSD1s7p7F7PZhzJ5W6NQq4NibUnDHJNY7GrOXG9anApJpveC05xdKnraueZ41uJrg4leQlDRWTkFyeRPLBsX6Z_5TTA2kj4krEDQR4lmR9zilI1gJQV1h06NYwtO4Gx-48uXzhoo8JdckaxAM6m1mXTPOgGU-U2do3Cs3RhlsceUVTOld5rd0so4C4Ui3_X5TDA8uz8noPxyhxSYPKk4aZ8f80MjNsy2SicCxUv4jVhEH3iIzYi3m_0rFzynIf_oQbbVtkGKGyRjp3EEU-g9v-SvHdf4oYyA6kQ6YFe4IC6rABbH1rUp5jvUpJcsmgPqskbPTfnwZPCxWCRk5Jdc2piV5vHwxhguERu7Sg-fVZ4RIl2Er17FRHzvBZokUYWx8[0m
+[0;32mI (500) battery: Battery info available: true[0m
+[0;32mI (520) battery: Not time to send battery status yet. Time left: 119 seconds.[0m
+[0;32mI (520) progress: Configuring RTC GPIOs[0m
+[0;32mI (520) progress: Determining the wakeup reason.[0m
+Time spent in deep sleep: 278ms. RTC time: 0s
+[0;32mI (530) *: Device started (not a wakeup)[0m
+[0;32mI (530) progress: Waiting for sensors to become inactive[0m
+[0;32mI (540) progress: Enabling timer wakeup, 6s
+[0m
+[0;32mI (540) progress: Enabling timer wakeup in wake up stub every 6s
+[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 1, last wake up RTC: 0[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 1, last wake up RTC: 1[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 1, last wake up RTC: 1[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 2, last wake up RTC: 1[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 2, last wake up RTC: 2[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 2, last wake up RTC: 2[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 3, last wake up RTC: 2[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 3, last wake up RTC: 3[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 3, last wake up RTC: 3[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 4, last wake up RTC: 3[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 4, last wake up RTC: 4[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 8, last wake up RTC: 4[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 8, last wake up RTC: 8[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 9, last wake up RTC: 8[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 9, last wake up RTC: 9[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 9, last wake up RTC: 9[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 10, last wake up RTC: 9[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 10, last wake up RTC: 10[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 11, last wake up RTC: 10[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 11, last wake up RTC: 11[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 11, last wake up RTC: 11[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 12, last wake up RTC: 11[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 12, last wake up RTC: 12[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 12, last wake up RTC: 12[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 19, last wake up RTC: 12[0m
+[0;32mwake stub: Wating time for inactive sensors is finished.[0m
+[0;32mwake stub: wakeup count is 1, wakeup cause is 8, wakeup cost 86608 us, RTC clock: 19[0m
+[0;32mwake stub: wakeup caused by automatic time interal wake up.[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 22, last wake up RTC: 19[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 23, last wake up RTC: 22[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 23, last wake up RTC: 23[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 23, last wake up RTC: 23[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 24, last wake up RTC: 23[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 24, last wake up RTC: 24[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 25, last wake up RTC: 24[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 25, last wake up RTC: 25[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 25, last wake up RTC: 25[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 26, last wake up RTC: 25[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 26, last wake up RTC: 26[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 26, last wake up RTC: 26[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 27, last wake up RTC: 26[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 27, last wake up RTC: 27[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 27, last wake up RTC: 27[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 28, last wake up RTC: 27[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 28, last wake up RTC: 28[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 29, last wake up RTC: 28[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 35, last wake up RTC: 29[0m
+[0;32mwake stub: Wating time for inactive sensors is finished.[0m
+[0;32mwake stub: wakeup count is 2, wakeup cause is 8, wakeup cost 86609 us, RTC clock: 35[0m
+[0;32mwake stub: wakeup caused by automatic time interal wake up.[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 38, last wake up RTC: 35[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 39, last wake up RTC: 38[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 39, last wake up RTC: 39[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 39, last wake up RTC: 39[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 40, last wake up RTC: 39[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 40, last wake up RTC: 40[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 40, last wake up RTC: 40[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 44, last wake up RTC: 40[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 44, last wake up RTC: 44[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 45, last wake up RTC: 44[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 45, last wake up RTC: 45[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 45, last wake up RTC: 45[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 46, last wake up RTC: 45[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 46, last wake up RTC: 46[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 46, last wake up RTC: 46[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 47, last wake up RTC: 46[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 47, last wake up RTC: 47[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 48, last wake up RTC: 47[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 48, last wake up RTC: 48[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 48, last wake up RTC: 48[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 49, last wake up RTC: 48[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 49, last wake up RTC: 49[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 49, last wake up RTC: 49[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 50, last wake up RTC: 49[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 50, last wake up RTC: 50[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 50, last wake up RTC: 50[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 51, last wake up RTC: 50[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 51, last wake up RTC: 51[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 52, last wake up RTC: 51[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 55, last wake up RTC: 52[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 56, last wake up RTC: 56[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 56, last wake up RTC: 56[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 57, last wake up RTC: 56[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 57, last wake up RTC: 57[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 57, last wake up RTC: 57[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 58, last wake up RTC: 57[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 58, last wake up RTC: 58[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 58, last wake up RTC: 58[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 59, last wake up RTC: 58[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 59, last wake up RTC: 59[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 59, last wake up RTC: 59[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 60, last wake up RTC: 59[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 60, last wake up RTC: 60[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 61, last wake up RTC: 60[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 61, last wake up RTC: 61[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 61, last wake up RTC: 61[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 62, last wake up RTC: 61[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 62, last wake up RTC: 62[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 62, last wake up RTC: 62[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 63, last wake up RTC: 62[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 63, last wake up RTC: 63[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 65, last wake up RTC: 63[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 66, last wake up RTC: 65[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 66, last wake up RTC: 66[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 66, last wake up RTC: 66[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 67, last wake up RTC: 66[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 67, last wake up RTC: 67[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 67, last wake up RTC: 67[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 68, last wake up RTC: 67[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 68, last wake up RTC: 68[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 71, last wake up RTC: 68[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 72, last wake up RTC: 71[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 72, last wake up RTC: 72[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 72, last wake up RTC: 72[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 73, last wake up RTC: 72[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 73, last wake up RTC: 73[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 74, last wake up RTC: 73[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 74, last wake up RTC: 74[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 74, last wake up RTC: 74[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 75, last wake up RTC: 74[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 75, last wake up RTC: 75[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 75, last wake up RTC: 75[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 76, last wake up RTC: 75[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 76, last wake up RTC: 76[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 76, last wake up RTC: 76[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 77, last wake up RTC: 76[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 77, last wake up RTC: 77[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 78, last wake up RTC: 77[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 78, last wake up RTC: 78[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 78, last wake up RTC: 78[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 79, last wake up RTC: 78[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 79, last wake up RTC: 79[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 79, last wake up RTC: 79[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 80, last wake up RTC: 79[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 86, last wake up RTC: 80[0m
+[0;32mwake stub: Wating time for inactive sensors is finished.[0m
+[0;32mwake stub: wakeup count is 3, wakeup cause is 8, wakeup cost 86607 us, RTC clock: 86[0m
+[0;32mwake stub: wakeup caused by automatic time interal wake up.[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 86, last wake up RTC: 86[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 87, last wake up RTC: 86[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 87, last wake up RTC: 87[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 87, last wake up RTC: 87[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 88, last wake up RTC: 87[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 88, last wake up RTC: 88[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 88, last wake up RTC: 88[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 89, last wake up RTC: 88[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 92, last wake up RTC: 89[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 92, last wake up RTC: 92[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 93, last wake up RTC: 92[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 93, last wake up RTC: 93[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 93, last wake up RTC: 93[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 94, last wake up RTC: 93[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 94, last wake up RTC: 94[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 94, last wake up RTC: 94[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 101, last wake up RTC: 94[0m
+[0;32mwake stub: Wating time for inactive sensors is finished.[0m
+[0;32mwake stub: wakeup count is 4, wakeup cause is 8, wakeup cost 86875 us, RTC clock: 101[0m
+[0;32mwake stub: wakeup caused by automatic time interal wake up.[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 102, last wake up RTC: 101[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 103, last wake up RTC: 102[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 103, last wake up RTC: 103[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 103, last wake up RTC: 103[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 104, last wake up RTC: 103[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 104, last wake up RTC: 104[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 104, last wake up RTC: 104[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 108, last wake up RTC: 104[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 108, last wake up RTC: 108[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 109, last wake up RTC: 108[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 109, last wake up RTC: 109[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 109, last wake up RTC: 109[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 110, last wake up RTC: 109[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 110, last wake up RTC: 110[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 111, last wake up RTC: 110[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 111, last wake up RTC: 111[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 111, last wake up RTC: 111[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 114, last wake up RTC: 111[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 114, last wake up RTC: 114[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 115, last wake up RTC: 114[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 115, last wake up RTC: 115[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 115, last wake up RTC: 115[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 116, last wake up RTC: 115[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 121, last wake up RTC: 116[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 121, last wake up RTC: 121[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 121, last wake up RTC: 121[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 122, last wake up RTC: 121[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 122, last wake up RTC: 122[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 123, last wake up RTC: 122[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 123, last wake up RTC: 123[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 123, last wake up RTC: 123[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 124, last wake up RTC: 123[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 124, last wake up RTC: 124[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 124, last wake up RTC: 124[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 125, last wake up RTC: 124[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 125, last wake up RTC: 125[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 125, last wake up RTC: 125[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 126, last wake up RTC: 125[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 126, last wake up RTC: 126[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 127, last wake up RTC: 126[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 127, last wake up RTC: 127[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 127, last wake up RTC: 127[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 128, last wake up RTC: 127[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 128, last wake up RTC: 128[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 128, last wake up RTC: 128[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 129, last wake up RTC: 128[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+[0;32mwake stub: going to deep sleep[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[0;32mwake stub: start of the wake up stub[0m
+[0;32mwake up stub: RTC clock: 129, last wake up RTC: 129[0m
+[0;32mwake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive[0m
+Done
