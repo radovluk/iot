@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdbool.h>
+
 #define EXAMPLE_ESP_WIFI_SSID      "CAPS-Seminar-Room"
 #define EXAMPLE_ESP_WIFI_PASS      "caps-schulz-seminar-room-wifi"
 #define SNTP_SERVER_NAME           "ntp1.in.tum.de"
@@ -10,23 +13,20 @@
 // #define SNTP_SERVER_NAME            "pool.ntp.org"
 // #define MQTT_BROKER                "192.168.81.143"
 
-#include <stdio.h>
-#include <stdbool.h>
-
 // Struct for PIR event
 typedef struct {
     uint64_t timestamp;
     int device_id;
-    int sensor_id; //0 PIR sensor, 1 Magnetic Switch
 } PIR_Event_t;
 
-// Define intervals as RTC memory variables
-extern RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS;  // Configurable number of PIR events to store
-extern RTC_DATA_ATTR uint32_t PIR_EVENT_DELIVERY_DEADLINE_SEC;  // Deadline for delivering PIR events to MQTT
-extern RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC;  // Interval for sending battery information (every 120s)
-extern RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC; // Automatic wakeup interval
-#define PIR_EVENTS_ARRAY_SIZE 10  // Configurable number of PIR events to store. Make sure it is at least MAX_PIR_EVENTS!
+// Definiton of the maximum number of the PIR events stored in RTC memory
+#define PIR_EVENTS_ARRAY_SIZE 3  // Configurable number of PIR events to store. Make sure it is at least MAX_PIR_EVENTS!
+extern RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS;  // Configurable number of PIR events to store, adjust together with PIR_EVENTS_ARRAY_SIZE
 extern RTC_DATA_ATTR PIR_Event_t pir_events[PIR_EVENTS_ARRAY_SIZE];
+
+// Define intervals as RTC memory variables
+extern RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC;  // Interval for sending battery information
+extern RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC; // Automatic wakeup interval
 
 // Store GPIO pins in RTC memory
 extern RTC_DATA_ATTR int PIR_PIN;              // PIR sensor pin
@@ -35,13 +35,14 @@ extern RTC_DATA_ATTR int MAGNETIC_SWITCH_PIN;  // Magnetic switch pin
 // Define max and min frequencies
 #define MAX_FREQ 240
 #define MIN_FREQ 80
+
 // Define approximate slow clock freuency
 #define RTC_SLOW_CLK_FREQ_APPROX 150000ULL 
 
 // Define light sleep (in current implementation the light sleep colides with wakeup reason detection)
 #define LIGHT_SLEEP_ENABLE false
 
-// Sensor inactive delay in milliseconds
+// Sensor inactive delay in milliseconds (wating time in the while loop for deactivation of the sensors)
 extern RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS;
 
 // Device information structure
@@ -54,7 +55,7 @@ typedef struct {
     bool battery_info_available;
 } device_info_t;
 
-// Extern declarations for variables used also in wake-up stub
+// Extern declarations for variables defining the DEVICE, stored in RTC memory
 extern RTC_DATA_ATTR int DEVICE_ID;
 extern RTC_DATA_ATTR char DEVICE_TOPIC[512];
 extern RTC_DATA_ATTR char DEVICE_KEY[1024];

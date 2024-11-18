@@ -30,13 +30,13 @@
 #include "rtc_wake_stub.h"
 
 // RTC slow memory variables
-RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS = 10;
-RTC_DATA_ATTR uint32_t PIR_EVENT_DELIVERY_DEADLINE_SEC = 60 * 10;
-RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = 120;
-RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = 15;
+RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS = 3;
+RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = 30;
+RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = 10;
 RTC_DATA_ATTR int PIR_PIN = 27;
 RTC_DATA_ATTR int MAGNETIC_SWITCH_PIN = 33;
 RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS = 3000;
+RTC_DATA_ATTR PIR_Event_t pir_events[PIR_EVENTS_ARRAY_SIZE];
 
 // Keeps track of the last time battery information was sent
 RTC_DATA_ATTR uint64_t last_battery_info_time = 0;
@@ -240,7 +240,7 @@ void updateBatteryStatus() {
 
     // Convert `struct timeval` to milliseconds
     uint64_t now_ms = (uint64_t)now.tv_sec * 1000 + (uint64_t)now.tv_usec / 1000;
-    uint64_t last_update_ms = last_battery_info_time; // For readability
+    uint64_t last_update_ms = last_battery_info_time;
 
     if ((now_ms - last_update_ms) >= BATTERY_INFO_INTERVAL_SEC * 1000) {
         ESP_LOGI("battery", "Time to send battery information");
