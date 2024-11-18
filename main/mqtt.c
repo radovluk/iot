@@ -117,11 +117,11 @@ void sendPIReventToMQTT(void) {
   // Define room_id based on device location
   const char* room_id;
   // Assign the room_id based on DEVICE_ID
-  if (strcmp(DEVICE_ID, "4") == 0) {
+  if (DEVICE_ID == 4) {
       room_id = "livingroombedarea";
-  } else if (strcmp(DEVICE_ID, "5") == 0) {
+  } else if (DEVICE_ID == 5) {
       room_id = "kitchen";
-  } else if (strcmp(DEVICE_ID, "3") == 0) {
+  } else if (DEVICE_ID == 3) {
       room_id = "bathroom";
   } else {
       room_id = "unknown";  // Default or fallback room ID

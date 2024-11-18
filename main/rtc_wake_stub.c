@@ -122,7 +122,7 @@ void wake_stub(void)
     // Wake up is caused by Sensor
     } else if (wakeup_cause == 2) {
         ESP_RTC_LOGI("wake stub: wakeup caused by sensor trigger.");
-        ESP_RTC_LOGI("wake stub: DEVICE_ID = %s, DEVICE_TOPIC = %s", DEVICE_ID, DEVICE_TOPIC);
+        ESP_RTC_LOGI("wake stub: DEVICE_ID = %d, DEVICE_TOPIC = %s", DEVICE_ID, DEVICE_TOPIC);
 
         #define DR_REG_RTCCNTL_BASE 0x3ff48000
         #define RTC_CNTL_EXT_WAKEUP1_STATUS_REG (DR_REG_RTCCNTL_BASE + 0x90)
@@ -134,10 +134,8 @@ void wake_stub(void)
         // Identify which sensor triggered the wakeup
         if (ext1_status == 0x149970) {
             ESP_RTC_LOGI("wake stub: PIR sensor triggered wakeup\n");
-        } else if (ext1_status & (1ULL << 8)) { // RTC GPIO8 for Magnetic Switch
-            ESP_RTC_LOGI("wake stub: Magnetic Switch triggered wakeup\n");
         } else {
-            ESP_RTC_LOGI("wake stub: Unknown wakeup source\n");
+            ESP_RTC_LOGI("wake stub: Magnetic Switch triggered wakeup\n");
         }
 
         // Perform required minimal actions for the sensors here (e.g., logging or handling GPIOs).

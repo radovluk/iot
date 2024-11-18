@@ -16,7 +16,8 @@
 // Struct for PIR event
 typedef struct {
     uint64_t timestamp;
-    char roomID[20];
+    int device_id;
+    int sensor_id; //0 PIR sensor, 1 Magnetic Switch
 } PIR_Event_t;
 
 // Define intervals as RTC memory variables
@@ -47,14 +48,14 @@ extern RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS;
 typedef struct {
     const char* device_name;
     const uint8_t mac_address[6];
-    const char* device_id;
+    const int device_id;
     const char* device_topic;
     const char* device_key;
     bool battery_info_available;
 } device_info_t;
 
 // Extern declarations for variables used also in wake-up stub
-extern RTC_DATA_ATTR char DEVICE_ID[32];
+extern RTC_DATA_ATTR int DEVICE_ID;
 extern RTC_DATA_ATTR char DEVICE_TOPIC[512];
 extern RTC_DATA_ATTR char DEVICE_KEY[1024];
 extern RTC_DATA_ATTR bool battery_info_available;
