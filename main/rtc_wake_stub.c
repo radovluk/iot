@@ -28,9 +28,6 @@ static uint32_t wakeup_time;
 // Variable to prevent the multiple wakeups cased by PIR sensors
 RTC_DATA_ATTR static uint64_t last_wakeup_RTC = 0;
 
-// Counter of the already stored PIR events
-RTC_DATA_ATTR int pir_event_count = 0;
-
 // Information about the last battery update, needs to extern
 RTC_DATA_ATTR uint64_t last_battery_info_time_RTC = 0;
 
@@ -75,10 +72,10 @@ void wake_stub(void)
         // Identify which sensor triggered the wakeup
         if (ext1_status == 0x149970) {
             ESP_RTC_LOGI("wake stub: PIR sensor triggered wakeup\n");
-            store_pir_event(my_rtc_time_get_us(), DEVICE_ID);
+            store_pir_event(DEVICE_ID);
             if (pir_event_count == MAX_PIR_EVENTS){
-                pir_event_count = 0;
-                ESP_RTC_LOGI("wake stub: The pir events array is full, waking up the application.\n");
+                // pir_event_count = 0; NO!!!
+                ESP_RTC_LOGI("wake stub: The pir events array is full (%d/%d pir events stored), waking up the application.\n", pir_event_count, MAX_PIR_EVENTS);
                 esp_default_wake_deep_sleep();
                 ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.") 
                 return;
@@ -120,15 +117,25 @@ void wake_stub(void)
     esp_wake_stub_sleep(&wake_stub);
 }
 
-void store_pir_event(uint64_t timestamp, int device_id)
+void store_pir_event(int device_id)
 {
-    // Store the new event
-    pir_events[pir_event_count].timestamp = timestamp;
+    // Get the current RTC time in seconds
+    uint64_t rtc_time_now = my_rtc_time_get_us() / 1000;
+
+    // Calculate the time difference in seconds since the last synchronization
+    uint64_t rtc_time_diff = rtc_time_now - rtc_time_at_last_sync;
+
+    // Calculate the actual timestamp using the time difference and the last actual time
+    uint64_t actual_timestamp = actual_time_at_last_sync + rtc_time_diff;
+
+    ESP_RTC_LOGI("wake stub: rtc_time_now: = %llu, rtc_time_at_last_sync: %llu, actual_time_at_last_sync %llu\n, actual_time_stamp: %llu", rtc_time_now, rtc_time_at_last_sync, actual_time_at_last_sync, actual_timestamp);
+
+    // Store the new event with the calculated actual timestamp
+    pir_events[pir_event_count].timestamp = actual_timestamp;
     pir_events[pir_event_count].device_id = device_id;
 
-    // Log the stored event message
-    ESP_RTC_LOGI("wake stub: stored PIR event: Timestamp = %llu, Device ID = %d, Event Index = %d\n",
-    (unsigned long long)timestamp, device_id, pir_event_count);
+    // Log the stored event
+    ESP_RTC_LOGI("wake stub: Stored PIR event: Timestamp = %llu, Device ID = %d, Event Index = %d\n", actual_timestamp, device_id, pir_event_count);
 
     // Increment the event count
     pir_event_count++;

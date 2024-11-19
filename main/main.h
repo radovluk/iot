@@ -3,15 +3,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define EXAMPLE_ESP_WIFI_SSID      "CAPS-Seminar-Room"
-#define EXAMPLE_ESP_WIFI_PASS      "caps-schulz-seminar-room-wifi"
-#define SNTP_SERVER_NAME           "ntp1.in.tum.de"
-#define MQTT_BROKER                "131.159.85.125" 
+// #define EXAMPLE_ESP_WIFI_SSID      "CAPS-Seminar-Room"
+// #define EXAMPLE_ESP_WIFI_PASS      "caps-schulz-seminar-room-wifi"
+// #define SNTP_SERVER_NAME           "ntp1.in.tum.de"
+// #define MQTT_BROKER                "131.159.85.125" 
 
-// #define EXAMPLE_ESP_WIFI_SSID      "vbMobile24G"
-// #define EXAMPLE_ESP_WIFI_PASS      "vbMobile"
-// #define SNTP_SERVER_NAME            "pool.ntp.org"
-// #define MQTT_BROKER                "192.168.81.143"
+#define EXAMPLE_ESP_WIFI_SSID      "vbMobile24G"
+#define EXAMPLE_ESP_WIFI_PASS      "vbMobile"
+#define SNTP_SERVER_NAME            "pool.ntp.org"
+#define MQTT_BROKER                "192.168.81.143"
 
 // Struct for PIR event
 typedef struct {
@@ -64,6 +64,13 @@ extern RTC_DATA_ATTR bool battery_info_available;
 // Declare the ESPs array as extern
 extern const device_info_t ESPs[];
 
+// The counter of the PIR events stored in the RTC memory
+extern RTC_DATA_ATTR int pir_event_count;
+
+// Extern declarations for time synchronization variables during wake up stub
+extern RTC_DATA_ATTR uint64_t rtc_time_at_last_sync;
+extern RTC_DATA_ATTR uint64_t actual_time_at_last_sync;
+
 // Declare the functions used in main.c
 void configPM();
 void print_cpu_frequency();
@@ -73,5 +80,7 @@ void configure_rtc_gpio();
 void handle_wakeup_reason();
 uint64_t my_rtc_time_get_us(void);
 void RTC_IRAM_ATTR my_wakeup_stub(void);
-void flushPIReventsToMQTT(void);
 void updateBatteryStatus();
+void handlePIReventsArray();
+uint64_t get_current_time_in_ms();
+uint64_t get_time_since_boot_in_ms();

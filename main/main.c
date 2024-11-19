@@ -31,8 +31,8 @@
 
 // RTC slow memory variables
 RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS = 3;
-RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = 30;
-RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = 10;
+RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = 120;
+RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = 30;
 RTC_DATA_ATTR int PIR_PIN = 27;
 RTC_DATA_ATTR int MAGNETIC_SWITCH_PIN = 33;
 RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS = 3000;
@@ -46,6 +46,13 @@ RTC_DATA_ATTR int DEVICE_ID;
 RTC_DATA_ATTR char DEVICE_TOPIC[512];
 RTC_DATA_ATTR char DEVICE_KEY[1024];
 RTC_DATA_ATTR bool battery_info_available;
+
+// Counter of the already stored PIR events, stored in RTC memory
+RTC_DATA_ATTR int pir_event_count = 0;
+
+// Extern declarations for time synchronization variables during wake up stub
+RTC_DATA_ATTR uint64_t rtc_time_at_last_sync = 0;
+RTC_DATA_ATTR uint64_t actual_time_at_last_sync = 0;
 
 // List of ESPs
 const device_info_t ESPs[] = {
@@ -91,17 +98,25 @@ void app_main(void)
     }
     ESP_ERROR_CHECK(ret);
 
-//     ESP_LOGI("progress", "Starting Wifi");
-//     start_wifi();
+    ESP_LOGI("progress", "Starting Wifi");
+    start_wifi();
 
-//     ESP_LOGI("progress", "Starting Clock");
-//     start_clock();
+    ESP_LOGI("progress", "Starting Clock");
+    start_clock();
 
-//     ESP_LOGI("progress", "Starting MQTT");
-//     start_mqtt();
+    ESP_LOGI("progress", "Starting MQTT");
+    start_mqtt();
 
+    // Synchronize RTC time and actual time
+    actual_time_at_last_sync = get_current_time_in_ms();
+    rtc_time_at_last_sync = get_time_since_boot_in_ms();
+    ESP_LOGI("progress", "updating RTC time at last sync: %llu ms", rtc_time_at_last_sync);
+    ESP_LOGI("progress", "updating actual time at last sync: %llu ms", actual_time_at_last_sync);
     // Check if it is time to send the battery status and if so, do so.
     updateBatteryStatus();
+
+    // Check if there are any PIR events in pir events array and send them to MQTT
+    handlePIReventsArray();
 
     // Configure RTC GPIOs for PIR and Magnetic Switch
     ESP_LOGI("progress", "Configuring RTC GPIOs");
@@ -123,8 +138,8 @@ void app_main(void)
     // Enable EXT1 wakeup on the selected pins with any high logic level
     ESP_ERROR_CHECK(esp_sleep_enable_ext1_wakeup(wakeup_pins_mask, ESP_EXT1_WAKEUP_ANY_HIGH));
 
-//     ESP_LOGI("progress", "Disconnecting from WIFI.");
-//     finish_wifi();
+    ESP_LOGI("progress", "Disconnecting from WIFI.");
+    finish_wifi();
 
     ESP_LOGI("progress", "Enabling timer wakeup, %ds\n", AUTOMATIC_WAKEUP_INTERVAL_SEC);
     esp_sleep_enable_timer_wakeup(AUTOMATIC_WAKEUP_INTERVAL_SEC * 1000000);
@@ -216,7 +231,6 @@ void handle_wakeup_reason(){
         uint64_t wakeup_pin_mask = esp_sleep_get_ext1_wakeup_status();
         if (wakeup_pin_mask & (1ULL << PIR_PIN)) {
             ESP_LOGI("*", "Wakeup caused by PIR sensor");
-            // handlePIRevent();
         }
         if (wakeup_pin_mask & (1ULL << MAGNETIC_SWITCH_PIN)) {
             ESP_LOGI("*", "Wakeup caused by Magnetic Switch");
@@ -247,7 +261,7 @@ void updateBatteryStatus() {
         if (battery_info_available) {
             getRSOC();
             ESP_LOGI("battery", "Sending battery status to MQTT");
-            // sendBatteryStatusToMQTT();
+            sendBatteryStatusToMQTT();
             last_battery_info_time = now_ms; // Update the timestamp
         }
     } else {
@@ -257,57 +271,22 @@ void updateBatteryStatus() {
     }
 }
 
-// void handlePIRevent() {
-//     if (pir_event_count > 0) {
-//         ESP_LOGI("PIR", "Found %d stored PIR events. Flushing to MQTT.", pir_event_count);
-//         flushPIReventsToMQTT();
-//         // Reset the PIR event count and first_pir_event_time
-//         pir_event_count = 0;
-//         first_pir_event_time = 0;
-//     } else {
-//         ESP_LOGI("PIR", "No stored PIR events to send.");
-//     }
-// }
+void handlePIReventsArray() {
+    if (pir_event_count > 0) {
+        ESP_LOGI("PIR", "Found %d stored PIR events. Flushing to MQTT.", pir_event_count);
+        sendPIReventsToMQTT();    
+        // Reset the PIR event count in sendPIREventsFunction
+    } else {
+        ESP_LOGI("PIR", "No stored PIR events to send.");
+    }
+}
 
-void flushPIReventsToMQTT() {
-    // // Buffer for the JSON message
-    // char msg[1024];  // Adjust the size based on expected number of events
-    // int offset = 0;
+uint64_t get_current_time_in_ms() {
+    struct timeval now;
+    gettimeofday(&now, NULL);
+    return (uint64_t)(now.tv_sec) * 1000 + (now.tv_usec) / 1000; // Convert to milliseconds
+}
 
-    // // Start constructing the JSON message
-    // offset += snprintf(msg + offset, sizeof(msg) - offset, "{\"sensors\":[{\"name\":\"PIR\",\"values\":[");
-
-    // for (int i = 0; i < pir_event_count; ++i) {
-    //     // Convert timestamp from microseconds to milliseconds
-    //     uint64_t timestamp_ms = pir_events[i].timestamp / 1000ULL;
-
-    //     // Get the room ID based on the device
-    //     const char* room_id;
-    //     if (strcmp(DEVICE_ID, "4") == 0) {
-    //         room_id = "livingroombedarea";
-    //     } else if (strcmp(DEVICE_ID, "5") == 0) {
-    //         room_id = "kitchen";
-    //     } else if (strcmp(DEVICE_ID, "3") == 0) {
-    //         room_id = "bathroom";
-    //     } else {
-    //         room_id = "unknown";
-    //     }
-
-    //     // Add the event to the JSON array
-    //     offset += snprintf(msg + offset, sizeof(msg) - offset,
-    //                        "{\"timestamp\":%llu,\"roomID\":\"%s\"}%s",
-    //                        (unsigned long long)timestamp_ms, room_id,
-    //                        (i < pir_event_count - 1) ? "," : "");
-    // }
-
-    // // Close the JSON message
-    // offset += snprintf(msg + offset, sizeof(msg) - offset, "]}]}");
-
-    // ESP_LOGI("mqtt", "Sending stored PIR events to MQTT: %s", msg);
-
-    // // Publish the message to MQTT
-    // int msg_id = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, offset, 1, 0);
-    // if (msg_id == -1) {
-    //     ESP_LOGE("mqtt", "Error publishing stored PIR events");
-    // }
+uint64_t get_time_since_boot_in_ms() {
+    return esp_timer_get_time() / 1000; // Convert microseconds to milliseconds
 }

@@ -7,3 +7,4 @@ void start_mqtt(void);
 void sendPIReventToMQTT(void);
 void sendBatteryStatusToMQTT(void);
 void sendMagneticSwitchEventToMQTT(void);
+void sendPIReventsToMQTT(void);

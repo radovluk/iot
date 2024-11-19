@@ -172,3 +172,50 @@ void sendBatteryStatusToMQTT(void) {
     return ESP_FAIL;
   }
 }
+
+void sendPIReventsToMQTT()
+{
+    // Build the JSON message
+    char msg[1024]; // Adjust size as needed
+    char values[512] = ""; // Buffer for "values" array
+    char temp[128];
+
+    for (int i = 0; i < pir_event_count; i++)
+    {
+        // Get room ID based on device ID
+        const char* room_id;
+        switch (DEVICE_ID)
+        {
+            case 3: room_id = "bathroom"; break;
+            case 4: room_id = "livingroombedarea"; break;
+            case 5: room_id = "kitchen"; break;
+            default: room_id = "unknown"; break;
+        }
+
+        // Append comma if not the first element
+        if (i > 0)
+            strcat(values, ",");
+
+        // Format the timestamp in milliseconds
+        uint64_t timestamp_ms = pir_events[i].timestamp;
+
+        snprintf(temp, sizeof(temp), "{\"timestamp\":%llu,\"roomID\":\"%s\"}", timestamp_ms, room_id);
+        strcat(values, temp);
+    }
+
+    // Build the final JSON message
+    snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"PIR\",\"values\":[%s]}]}", values);
+
+    // Send the message via MQTT
+    ESP_LOGI("mqtt", "Sending PIR events: %s", msg);
+    int msg_id = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, 0, 1, 0);
+    if (msg_id == -1)
+    {
+        ESP_LOGE("mqtt", "Error publishing PIR events to MQTT");
+        ESP_LOGI("functions", "SendToMqttFunction terminated");
+        return ESP_FAIL;
+    } else {
+        // Reset the PIR event count
+        pir_event_count = 0;
+    }
+}
