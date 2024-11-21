@@ -16,145 +16,231 @@
 #include "esp_private/esp_clk.h"
 #include "main.h"
 
-// Waiting time in seconds for inactive sensors in wake up stub.
-RTC_DATA_ATTR static const uint32_t waiting_time_for_inactive_sensors_s = 3;
+// Waiting time in seconds for inactive sensors in wake-up stub.
+RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_IN_WAKE_UP_STUB_SEC = CONFIG_SENSOR_INACTIVE_DELAY_IN_WAKE_UP_STUB_SEC;
 
-// wakeup_cause stored in RTC memory
+// Wake-up cause stored in RTC memory.
 static uint32_t wakeup_cause;
 
-// wakeup_time from CPU start to wake stub
+// Wake-up time from CPU start to wake stub.
 static uint32_t wakeup_time;
 
-// Variable to prevent the multiple wakeups cased by PIR sensors
+// Variable to prevent multiple wake-ups caused by PIR sensors.
 RTC_DATA_ATTR static uint64_t last_wakeup_RTC = 0;
 
-// Information about the last battery update, needs to extern
+// Information about the last battery update.
 RTC_DATA_ATTR uint64_t last_battery_info_time_RTC = 0;
 
-// wake up stub function stored in RTC memory
+/**
+ * @brief Wake-up stub function executed during wake-up from deep sleep.
+ *
+ * This function runs in the minimal RTC fast memory environment and handles
+ * minimal tasks required during wake-up, such as determining the wake-up cause,
+ * handling sensor triggers, and managing deep sleep cycles.
+ *
+ * @note Logging and use of standard library functions are limited in this environment.
+ */
 void wake_stub(void)
 {
-    ESP_RTC_LOGI("wake stub: start of the wake up stub");
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: start of the wake-up stub");
+#endif
 
-    // Get wakeup time.
+    // Get wake-up time.
     wakeup_time = esp_cpu_get_cycle_count() / esp_rom_get_cpu_ticks_per_us();
-    // Get wakeup cause.
-    wakeup_cause = esp_wake_stub_get_wakeup_cause(); // 8: Timer, 2: Sensor (EXT1)
-    ESP_RTC_LOGI("wake stub: wakeup cause is %d, wakeup cost %ld us, RTC clock: %llu, last battery update: %llu", 
-                wakeup_cause, wakeup_time, my_rtc_time_get_us()/1000000, last_battery_info_time_RTC);
 
-    // Make sure that the wake up event was caused by a new trigger and not the still active sensors
-    ESP_RTC_LOGI("wake up stub: RTC clock: %llu, last wake up RTC: %llu", my_rtc_time_get_us()/1000000, last_wakeup_RTC);
-    if (my_rtc_time_get_us()/1000000 - last_wakeup_RTC <= waiting_time_for_inactive_sensors_s){
-        last_wakeup_RTC = my_rtc_time_get_us()/1000000;
-        ESP_RTC_LOGI("wake stub: wake up stub is caused by still active sensor, waiting for the sensors to become inactive");
-        ets_delay_us(1000000); // in microseconds
+    // Get wake-up cause.
+    wakeup_cause = esp_wake_stub_get_wakeup_cause(); // 8: Timer, 2: Sensor (EXT1)
+
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: wake-up cause is %d, wake-up cost %ld us, RTC clock: %llu, last battery update: %llu",
+                 wakeup_cause, wakeup_time, my_rtc_time_get_us() / 1000000, last_battery_info_time_RTC);
+#endif
+
+    // Ensure the wake-up event was caused by a new trigger, not by still active sensors.
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: RTC clock: %llu, last wake-up RTC: %llu",
+                 my_rtc_time_get_us() / 1000000, last_wakeup_RTC);
+#endif
+
+    if (my_rtc_time_get_us() / 1000000 - last_wakeup_RTC <= SENSOR_INACTIVE_DELAY_IN_WAKE_UP_STUB_SEC) {
+        last_wakeup_RTC = my_rtc_time_get_us() / 1000000;
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: wake-up stub is caused by still active sensor, waiting for the sensors to become inactive");
+#endif
+        ets_delay_us(1000000); // Delay in microseconds.
         esp_wake_stub_set_wakeup_time(AUTOMATIC_WAKEUP_INTERVAL_SEC * 1000000);
+#if WAKEUP_STUB_LOG_LEVEL
         ESP_RTC_LOGI("wake stub: going to deep sleep");
-        // Set stub entry, then going to deep sleep again.
+#endif
+        // Set stub entry, then go to deep sleep again.
         esp_wake_stub_sleep(&wake_stub);
     }
-    last_wakeup_RTC = my_rtc_time_get_us()/1000000;
-    ESP_RTC_LOGI("wake stub: Wating time for inactive sensors is finished.");
+    last_wakeup_RTC = my_rtc_time_get_us() / 1000000;
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: Waiting time for inactive sensors is finished.");
+#endif
 
-    // Wake up was caused by sensor
-    if (wakeup_cause == 2) {
-        ESP_RTC_LOGI("wake stub: wakeup caused by sensor trigger.");
-        ESP_RTC_LOGI("wake stub: DEVICE_ID = %d, DEVICE_TOPIC = %s", DEVICE_ID, DEVICE_TOPIC);
+    // Wake-up was caused by a sensor.
+    if (wakeup_cause == 2) { // ESP_SLEEP_WAKEUP_EXT1
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: wake-up caused by sensor trigger.");
+        ESP_RTC_LOGI("wake stub: DEVICE_ID = %d", this_device.device_id);
+#endif
 
+        // Read the EXT1 wake-up status register to identify the sensor.
         #define DR_REG_RTCCNTL_BASE 0x3ff48000
         #define RTC_CNTL_EXT_WAKEUP1_STATUS_REG (DR_REG_RTCCNTL_BASE + 0x90)
         #define REG_READ(_r) (*(volatile uint32_t *)(_r))
 
         uint32_t ext1_status = REG_READ(RTC_CNTL_EXT_WAKEUP1_STATUS_REG);
+#if WAKEUP_STUB_LOG_LEVEL
         ESP_RTC_LOGI("wake stub: ext1_status = 0x%X", ext1_status);
+#endif
 
-        // Identify which sensor triggered the wakeup
-        if (ext1_status == 0x149970) {
-            ESP_RTC_LOGI("wake stub: PIR sensor triggered wakeup\n");
-            store_pir_event(DEVICE_ID);
-            if (pir_event_count == MAX_PIR_EVENTS){
-                // pir_event_count = 0; NO!!!
-                ESP_RTC_LOGI("wake stub: The pir events array is full (%d/%d pir events stored), waking up the application.\n", pir_event_count, MAX_PIR_EVENTS);
+        // Identify which sensor triggered the wake-up.
+        if (ext1_status == 0x149970) { // Replace with actual value for PIR sensor.
+#if WAKEUP_STUB_LOG_LEVEL
+            ESP_RTC_LOGI("wake stub: PIR sensor triggered wake-up");
+#endif
+            store_pir_event();
+            if (pir_event_count == MAX_PIR_EVENTS) {
+                // Do not reset pir_event_count here.
+#if WAKEUP_STUB_LOG_LEVEL
+                ESP_RTC_LOGI("wake stub: The PIR events array is full (%d/%d events stored), waking up the application.",
+                             pir_event_count, MAX_PIR_EVENTS);
+#endif
                 esp_default_wake_deep_sleep();
-                ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.") 
+#if WAKEUP_STUB_LOG_LEVEL
+                ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.");
+#endif
                 return;
             }
         } else {
-            ESP_RTC_LOGI("wake stub: Magnetic Switch triggered wakeup.\n");
+#if WAKEUP_STUB_LOG_LEVEL
+            ESP_RTC_LOGI("wake stub: Magnetic Switch triggered wake-up.");
+#endif
             esp_default_wake_deep_sleep();
-            ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.") 
+#if WAKEUP_STUB_LOG_LEVEL
+            ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.");
+#endif
             return;
         }
 
-        // Perform required minimal actions for the sensors here (e.g., logging or handling GPIOs).
+        // Perform required minimal actions for the sensors here.
         // Do not proceed to the main application; return to deep sleep.
-        ESP_RTC_LOGI("wake stub: returning to deep sleep after handling sensor trigger\n");
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: returning to deep sleep after handling sensor trigger");
+#endif
 
-        // Set the wakeup time for the next cycle if needed
+        // Set the wake-up time for the next cycle if needed.
         esp_wake_stub_set_wakeup_time(AUTOMATIC_WAKEUP_INTERVAL_SEC * 1000000);
 
-        // Return to deep sleep
+        // Return to deep sleep.
         esp_wake_stub_sleep(&wake_stub);
     } else {
-        ESP_RTC_LOGI("wake stub: wakeup caused by automatic refresh.");
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: wake-up caused by automatic refresh.");
+#endif
     }
 
-    // Time to send the battery status to the MQTT
-    if (my_rtc_time_get_us()/1000000 - last_battery_info_time_RTC >= BATTERY_INFO_INTERVAL_SEC){
-        ESP_RTC_LOGI("wake stub: time to send the battery status.\n");
-        last_battery_info_time_RTC = my_rtc_time_get_us()/1000000;
+    // Check if it's time to send the battery status to MQTT.
+    if (my_rtc_time_get_us() / 1000000 - last_battery_info_time_RTC >= BATTERY_INFO_INTERVAL_SEC) {
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: time to send the battery status.");
+#endif
+        last_battery_info_time_RTC = my_rtc_time_get_us() / 1000000;
         esp_default_wake_deep_sleep();
-        ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.") 
+#if WAKEUP_STUB_LOG_LEVEL
+        ESP_RTC_LOGI("wake stub: Booting the firmware and the main app.");
+#endif
         return;
     }
 
-    // Set wakeup time in stub, if need to check GPIOs or read some sensor periodically in the stub.
+    // Set wake-up time in stub if needed to check GPIOs or read some sensor periodically in the stub.
     esp_wake_stub_set_wakeup_time(AUTOMATIC_WAKEUP_INTERVAL_SEC * 1000000);
+
     // Print status.
+#if WAKEUP_STUB_LOG_LEVEL
     ESP_RTC_LOGI("wake stub: going to deep sleep");
-    // Set stub entry, then going to deep sleep again.
+#endif
+
+    // Set stub entry, then go to deep sleep again.
     esp_wake_stub_sleep(&wake_stub);
 }
 
-void store_pir_event(int device_id)
+/**
+ * @brief Stores a PIR event with the current timestamp and device information.
+ *
+ * Calculates the actual timestamp based on RTC time and synchronization data,
+ * then stores the event in the PIR events array.
+ */
+void store_pir_event(void)
 {
-    // Get the current RTC time in seconds
+    // Get the current RTC time in milliseconds.
     uint64_t rtc_time_now = my_rtc_time_get_us() / 1000;
 
-    // Calculate the time difference in seconds since the last synchronization
+    // Calculate the time difference since the last synchronization.
     uint64_t rtc_time_diff = rtc_time_now - rtc_time_at_last_sync;
 
-    // Calculate the actual timestamp using the time difference and the last actual time
+    // Calculate the actual timestamp using the time difference and the last actual time.
     uint64_t actual_timestamp = actual_time_at_last_sync + rtc_time_diff;
 
-    ESP_RTC_LOGI("wake stub: rtc_time_now: = %llu, rtc_time_at_last_sync: %llu, actual_time_at_last_sync %llu\n, actual_time_stamp: %llu", rtc_time_now, rtc_time_at_last_sync, actual_time_at_last_sync, actual_timestamp);
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: rtc_time_now: %llu, rtc_time_at_last_sync: %llu, actual_time_at_last_sync: %llu, actual_timestamp: %llu",
+                 rtc_time_now, rtc_time_at_last_sync, actual_time_at_last_sync, actual_timestamp);
+#endif
 
-    // Store the new event with the calculated actual timestamp
+    // Store the new event with the calculated actual timestamp.
     pir_events[pir_event_count].timestamp = actual_timestamp;
-    pir_events[pir_event_count].device_id = device_id;
 
-    // Log the stored event
-    ESP_RTC_LOGI("wake stub: Stored PIR event: Timestamp = %llu, Device ID = %d, Event Index = %d\n", actual_timestamp, device_id, pir_event_count);
+    // Copy fields from this_device to pir_events[pir_event_count].device.
+    // Since we cannot use memcpy in the wake-up stub, we manually copy each field.
+    pir_events[pir_event_count].device.device_id = this_device.device_id;
+    pir_events[pir_event_count].device.battery_info_available = this_device.battery_info_available;
 
-    // Increment the event count
+    // Note: Assigning pointers directly as below is acceptable in the wake-up stub environment.
+    pir_events[pir_event_count].device.device_name = this_device.device_name;
+    pir_events[pir_event_count].device.device_topic = this_device.device_topic;
+    pir_events[pir_event_count].device.device_key = this_device.device_key;
+    pir_events[pir_event_count].device.room_id = this_device.room_id;
+
+    // Copy MAC address manually.
+    for (int i = 0; i < 6; i++) {
+        pir_events[pir_event_count].device.mac_address[i] = this_device.mac_address[i];
+    }
+
+#if WAKEUP_STUB_LOG_LEVEL
+    ESP_RTC_LOGI("wake stub: Stored PIR event: Timestamp = %llu, Device ID = %d, Event Index = %d",
+                 actual_timestamp, this_device.device_id, pir_event_count);
+#endif
+
+    // Increment the event count.
     pir_event_count++;
 }
 
-// my_rtc_time_get_us() returns the rtc clock value in the wakeup stub
-RTC_IRAM_ATTR uint64_t my_rtc_time_get_us(void) {
-  SET_PERI_REG_MASK(RTC_CNTL_TIME_UPDATE_REG, RTC_CNTL_TIME_UPDATE);
-  while (GET_PERI_REG_MASK(RTC_CNTL_TIME_UPDATE_REG, RTC_CNTL_TIME_VALID) == 0) {
-    ets_delay_us(1);  // might take 1 RTC slowclk period, don't flood RTC bus
-  }
-  SET_PERI_REG_MASK(RTC_CNTL_INT_CLR_REG, RTC_CNTL_TIME_VALID_INT_CLR);
-  uint64_t t = READ_PERI_REG(RTC_CNTL_TIME0_REG);
-  t |= ((uint64_t)READ_PERI_REG(RTC_CNTL_TIME1_REG)) << 32;
+/**
+ * @brief Retrieves the current RTC time in microseconds.
+ *
+ * This function reads the RTC time registers to obtain the current time.
+ * It operates in the wake-up stub environment and uses low-level register access.
+ *
+ * @return Current RTC time in microseconds.
+ */
+RTC_IRAM_ATTR uint64_t my_rtc_time_get_us(void)
+{
+    SET_PERI_REG_MASK(RTC_CNTL_TIME_UPDATE_REG, RTC_CNTL_TIME_UPDATE);
+    while (GET_PERI_REG_MASK(RTC_CNTL_TIME_UPDATE_REG, RTC_CNTL_TIME_VALID) == 0) {
+        ets_delay_us(1); // Wait for RTC time to be valid.
+    }
+    SET_PERI_REG_MASK(RTC_CNTL_INT_CLR_REG, RTC_CNTL_TIME_VALID_INT_CLR);
+    uint64_t t = READ_PERI_REG(RTC_CNTL_TIME0_REG);
+    t |= ((uint64_t)READ_PERI_REG(RTC_CNTL_TIME1_REG)) << 32;
 
-  uint32_t period = REG_READ(RTC_SLOW_CLK_CAL_REG);
+    uint32_t period = REG_READ(RTC_SLOW_CLK_CAL_REG);
 
-  // Convert microseconds to RTC clock cycles
-  uint64_t now1 = ((t * period) >> RTC_CLK_CAL_FRACT);
+    // Convert RTC clock cycles to microseconds.
+    uint64_t now_us = ((t * period) >> RTC_CLK_CAL_FRACT);
 
-  return now1;
+    return now_us;
 }

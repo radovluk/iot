@@ -40,14 +40,11 @@ RTC_DATA_ATTR PIR_Event_t pir_events[CONFIG_MAX_PIR_EVENTS];
 // Keeps track of the last time battery information was sent
 RTC_DATA_ATTR uint64_t last_battery_info_time = 0;
 
-// Global variables characterizing the device stored in RTC memory
-RTC_DATA_ATTR int DEVICE_ID;
-RTC_DATA_ATTR char DEVICE_TOPIC[512];
-RTC_DATA_ATTR char DEVICE_KEY[1024];
-RTC_DATA_ATTR bool battery_info_available;
-
 // Counter of the already stored PIR events, stored in RTC memory
 RTC_DATA_ATTR int pir_event_count = 0;
+
+// Define this_device variable
+RTC_DATA_ATTR device_info_t this_device;
 
 // Extern declarations for time synchronization variables during wake up stub
 RTC_DATA_ATTR uint64_t rtc_time_at_last_sync = 0;
@@ -55,7 +52,6 @@ RTC_DATA_ATTR uint64_t actual_time_at_last_sync = 0;
 
 // List of ESPs
 const device_info_t ESPs[] = {ESP_DEVICE_1, ESP_DEVICE_2, ESP_DEVICE_3};
-
 
 // Sleep_enter_time stored in RTC memory
 static RTC_DATA_ATTR struct timeval sleep_enter_time;
@@ -65,12 +61,6 @@ void app_main(void)
 {
     ESP_LOGI("progress", "Booting the main app");
     
-    // Initialize variables in RTC memory
-    DEVICE_ID = -1;
-    strcpy(DEVICE_TOPIC, "unknown/topic");
-    strcpy(DEVICE_KEY, "default_key");
-    battery_info_available = true;
-
     // Configure frequency and the light sleep
     configPM();
     print_cpu_frequency();
@@ -185,7 +175,7 @@ void print_cpu_frequency() {
     // Convert it to MHz for readability
     uint32_t cpu_freq_mhz = cpu_freq_hz / 1000000;
     // Print the current CPU frequency
-    ESP_LOGI("CPU_FREQ", "Current CPU frequency: %u MHz", cpu_freq_mhz);
+    ESP_LOGI("progress", "Current CPU frequency: %u MHz", cpu_freq_mhz);
 }
 
 /**
@@ -199,16 +189,10 @@ void print_cpu_frequency() {
 void identify_device(const uint8_t* mac_address) {
     for (int i = 0; i < sizeof(ESPs) / sizeof(ESPs[0]); ++i) {
         if (memcmp(mac_address, ESPs[i].mac_address, sizeof(ESPs[i].mac_address)) == 0) {
-            ESP_LOGI("*", "********** Device identified as %s. **********", ESPs[i].device_name);
-            // Initialize variables in RTC memory
-            DEVICE_ID = ESPs[i].device_id;
-            strcpy(DEVICE_TOPIC, ESPs[i].device_topic);
-            strcpy(DEVICE_KEY, ESPs[i].device_key);
-            battery_info_available = ESPs[i].battery_info_available;
-            ESP_LOGI("*", "DEVICE_ID: %d", DEVICE_ID);
-            ESP_LOGI("*", "DEVICE_TOPIC: %s", DEVICE_TOPIC);
-            ESP_LOGI("*", "DEVICE_KEY: %s", DEVICE_KEY);
-            ESP_LOGI("battery", "Battery info available: %s", battery_info_available ? "true" : "false");
+            // Copy the device info into this_device
+            memcpy(&this_device, &ESPs[i], sizeof(device_info_t));
+            // Logging
+            ESP_LOGI("*", "*********** Device identified as %s", this_device.device_name);
             return;
         }
     }
@@ -305,7 +289,7 @@ void updateBatteryStatus() {
 
     if ((now_ms - last_update_ms) >= BATTERY_INFO_INTERVAL_SEC * 1000) {
         ESP_LOGI("battery", "Time to send battery information");
-        if (battery_info_available) {
+        if (this_device.battery_info_available) {
             getRSOC();
             ESP_LOGI("battery", "Sending battery status to MQTT");
             sendBatteryStatusToMQTT();

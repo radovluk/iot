@@ -37,6 +37,18 @@ static int qos_test = 1;
 
 const static int CONNECTED_BIT = BIT0;
 
+/**
+ * @brief MQTT event handler callback function.
+ *
+ * This function handles various MQTT events such as connection, disconnection,
+ * subscription, data reception, etc. It is registered with the MQTT client to
+ * receive event notifications and acts accordingly based on the event type.
+ *
+ * @param handler_args  User-defined argument provided during registration (unused).
+ * @param base          Event base (should be MQTT_EVENT).
+ * @param event_id      ID of the MQTT event.
+ * @param event_data    Data associated with the event.
+ */
 void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data) {
   esp_mqtt_event_t *data = (esp_mqtt_event_t *)event_data;
   switch (event_id) {
@@ -83,6 +95,19 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
   }
 }
 
+/**
+ * @brief Initializes and starts the MQTT client.
+ *
+ * This function configures the MQTT client with the necessary parameters,
+ * initializes it, registers the event handler, and starts the client.
+ * It also waits for the client to connect before returning, ensuring that
+ * MQTT communication is ready for subsequent operations.
+ *
+ * - Configures MQTT broker settings such as hostname, port, and transport.
+ * - Sets up authentication using device-specific credentials.
+ * - Registers the event handler for MQTT events.
+ * - Starts the MQTT client and waits for a successful connection.
+ */
 void start_mqtt(void) {
   esp_mqtt_client_config_t mqtt_cfg = {};
   mqtt_cfg.broker.address.hostname = MQTT_BROKER;
@@ -91,10 +116,9 @@ void start_mqtt(void) {
   mqtt_cfg.session.protocol_ver = MQTT_PROTOCOL_V_3_1_1;
   mqtt_cfg.credentials.username = "JWT";
   mqtt_cfg.network.timeout_ms = 30000;
-  mqtt_cfg.credentials.authentication.password = DEVICE_KEY;
-  ESP_LOGI("mqtt", "Device Key: %s", DEVICE_KEY);
+  mqtt_cfg.credentials.authentication.password = this_device.device_key;
+  ESP_LOGI("mqtt", "Device Key: %s", this_device.device_key);
 
-  mqtt_cfg.credentials.authentication.password = DEVICE_KEY;
 
   ESP_LOGI("mqtt", "[APP] Free memory: %d bytes", esp_get_free_heap_size());
   mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
@@ -108,31 +132,33 @@ void start_mqtt(void) {
   ESP_LOGI("mqtt", "Connected to MQTT\n");
 }
 
+/**
+ * @brief Sends a single PIR (Passive Infrared) event to the MQTT broker.
+ *
+ * This function constructs a JSON message containing the current timestamp
+ * and room ID associated with the device. It then publishes this message
+ * to the MQTT broker under the device's specific topic.
+ *
+ * - Retrieves the current time to timestamp the event.
+ * - Formats the message as a JSON string.
+ * - Publishes the message to the MQTT broker with QoS level 1.
+ *
+ * @note This function should be called when a PIR event is detected and needs
+ *       to be reported immediately.
+ */
 void sendPIReventToMQTT(void) {
   time_t now = 0;
 
   char msg[150];
   time(&now);
-
-  // Define room_id based on device location
-  const char* room_id;
-  // Assign the room_id based on DEVICE_ID
-  if (DEVICE_ID == 4) {
-      room_id = "livingroombedarea";
-  } else if (DEVICE_ID == 5) {
-      room_id = "kitchen";
-  } else if (DEVICE_ID == 3) {
-      room_id = "bathroom";
-  } else {
-      room_id = "unknown";  // Default or fallback room ID
-  }
+  const char* room_id = this_device.room_id;
 
   // Format the message with the correct room ID
   int size = snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"PIR\",\"values\":[{\"timestamp\":%llu, \"roomID\":\"%s\"}]}]}", 
                       (unsigned long long)(now * 1000), room_id);
 
-  ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, DEVICE_TOPIC);
-  auto err = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, size, 1, 0);
+  ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, this_device.device_topic);
+  auto err = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, size, 1, 0);
   if (err == -1) {
     printf("Error while publishing to mqtt\n");
     ESP_LOGI("functions", "SendToMqttFunction terminated");
@@ -140,6 +166,20 @@ void sendPIReventToMQTT(void) {
   }
 }
 
+/**
+ * @brief Sends a magnetic switch event to the MQTT broker.
+ *
+ * This function constructs a JSON message containing the current timestamp
+ * and a predefined room ID ("livingroomdoor"), indicating that a magnetic
+ * switch event (e.g., door open/close) has occurred. It then publishes this
+ * message to the MQTT broker under the device's topic.
+ *
+ * - Retrieves the current time to timestamp the event.
+ * - Formats the message as a JSON string.
+ * - Publishes the message to the MQTT broker with QoS level 1.
+ *
+ * @note This function is specific to devices equipped with a magnetic switch sensor.
+ */
 void sendMagneticSwitchEventToMQTT(void) {
     time_t now = 0;
     char msg[150];
@@ -148,15 +188,28 @@ void sendMagneticSwitchEventToMQTT(void) {
     int size = snprintf(msg, sizeof(msg), 
         "{\"sensors\":[{\"name\":\"MagneticSwitch\",\"values\":[{\"timestamp\":%llu, \"roomID\":\"livingroomdoor\"}]}]}",
         (unsigned long long)(now * 1000));
-    ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, DEVICE_TOPIC);
+    ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, this_device.device_topic);
 
-    int msg_id = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, size, 1, 0);
+    int msg_id = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, size, 1, 0);
     if (msg_id == -1) {
         ESP_LOGE("mqtt", "Error publishing magnetic switch event");
     }
 }
 
-
+/**
+ * @brief Sends the battery status information to the MQTT broker.
+ *
+ * This function constructs a JSON message containing the current timestamp,
+ * battery voltage, and state of charge (SoC) of the device. It then publishes
+ * this message to the MQTT broker under the device's topic.
+ *
+ * - Retrieves the current time to timestamp the status.
+ * - Formats the message as a JSON string with battery metrics.
+ * - Publishes the message to the MQTT broker with QoS level 1.
+ *
+ * @note The variables `voltage` and `rsoc` should be updated with the latest
+ *       battery measurements before calling this function.
+ */
 void sendBatteryStatusToMQTT(void) {
   time_t now = 0;
 
@@ -164,8 +217,8 @@ void sendBatteryStatusToMQTT(void) {
   time(&now);
 
   int size = snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"battery\",\"values\":[{\"timestamp\":%llu, \"voltage\":%.1f, \"soc\":%.1f}]}]}", now * 1000, voltage, rsoc);
-  ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, DEVICE_TOPIC);
-  auto err = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, size, 1, 0);
+  ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, this_device.device_topic);
+  auto err = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, size, 1, 0);
   if (err == -1) {
     printf("Error while publishing to mqtt\n");
     ESP_LOGI("functions", "SendToMqttFunction terminated");
@@ -173,6 +226,21 @@ void sendBatteryStatusToMQTT(void) {
   }
 }
 
+/**
+ * @brief Sends stored PIR events to the MQTT broker in batch.
+ *
+ * This function iterates over the array of stored PIR events (`pir_events`),
+ * constructs a JSON message containing the timestamps and room IDs of all events,
+ * and publishes it to the MQTT broker under the device's topic. After successful
+ * publication, it resets the event count to prevent re-sending the same events.
+ *
+ * - Builds a JSON array of PIR event values.
+ * - Formats the message as a JSON string with all stored events.
+ * - Publishes the message to the MQTT broker with QoS level 1.
+ *
+ * @note This function is useful for sending multiple events that were stored during
+ *       periods when the device was in deep sleep or had no network connectivity.
+ */
 void sendPIReventsToMQTT()
 {
     // Build the JSON message
@@ -182,15 +250,8 @@ void sendPIReventsToMQTT()
 
     for (int i = 0; i < pir_event_count; i++)
     {
-        // Get room ID based on device ID
-        const char* room_id;
-        switch (DEVICE_ID)
-        {
-            case 3: room_id = "bathroom"; break;
-            case 4: room_id = "livingroombedarea"; break;
-            case 5: room_id = "kitchen"; break;
-            default: room_id = "unknown"; break;
-        }
+        // Get room ID from the stored device information
+        const char* room_id = pir_events[i].device.room_id;
 
         // Append comma if not the first element
         if (i > 0)
@@ -208,7 +269,7 @@ void sendPIReventsToMQTT()
 
     // Send the message via MQTT
     ESP_LOGI("mqtt", "Sending PIR events: %s", msg);
-    int msg_id = esp_mqtt_client_publish(mqtt_client, DEVICE_TOPIC, msg, 0, 1, 0);
+    int msg_id = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, 0, 1, 0);
     if (msg_id == -1)
     {
         ESP_LOGE("mqtt", "Error publishing PIR events to MQTT");
