@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include <string.h>
 #include <time.h>
 #include <sys/time.h>
 
@@ -29,14 +28,14 @@
 #include "gauge.h"
 #include "rtc_wake_stub.h"
 
-// RTC slow memory variables
-RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS = 3;
-RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = 120;
-RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = 30;
-RTC_DATA_ATTR int PIR_PIN = 27;
-RTC_DATA_ATTR int MAGNETIC_SWITCH_PIN = 33;
-RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS = 3000;
-RTC_DATA_ATTR PIR_Event_t pir_events[PIR_EVENTS_ARRAY_SIZE];
+// RTC slow memory config variables
+RTC_DATA_ATTR uint32_t MAX_PIR_EVENTS = CONFIG_MAX_PIR_EVENTS;
+RTC_DATA_ATTR uint32_t BATTERY_INFO_INTERVAL_SEC = CONFIG_BATTERY_INFO_INTERVAL_SEC;
+RTC_DATA_ATTR uint32_t AUTOMATIC_WAKEUP_INTERVAL_SEC = CONFIG_WAKEUP_INTERVAL_SEC;
+RTC_DATA_ATTR int PIR_PIN = CONFIG_PIR_PIN;
+RTC_DATA_ATTR int MAGNETIC_SWITCH_PIN = CONFIG_MAGNETIC_SWITCH_PIN;
+RTC_DATA_ATTR uint32_t SENSOR_INACTIVE_DELAY_MS = CONFIG_SENSOR_INACTIVE_DELAY_MS;
+RTC_DATA_ATTR PIR_Event_t pir_events[CONFIG_MAX_PIR_EVENTS];
 
 // Keeps track of the last time battery information was sent
 RTC_DATA_ATTR uint64_t last_battery_info_time = 0;
@@ -55,13 +54,10 @@ RTC_DATA_ATTR uint64_t rtc_time_at_last_sync = 0;
 RTC_DATA_ATTR uint64_t actual_time_at_last_sync = 0;
 
 // List of ESPs
-const device_info_t ESPs[] = {
-    {"Living Room", {0xEC, 0x62, 0x60, 0xBC, 0xE8, 0x50}, 4, "1/4/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODAxNTYsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS80In0.pz7e__yvBeb-xrVAXNlY_6-GPg0PBvrMOzxsG9re_ohsAMgKnVddBFwaaRB15P07J-D4_s_1KpHDRNw0trIfXdnPTFaV0ibKzk2C-j6EGXlBRFi7POP0p_QMobHk5DtI54j9fpbxtAvl7uwQCWJlBY4w0rmynlJrEN5TRvu2veMtvN8HPOoYpw4k1L_jif_w0Jli-MM-aDhhuRFUO07hwqV1qoxArm0xcd4EW0u0OWM0Uvs9vW51Vr_BDb7-TgvywJQO9R8DCjXk3BBPG8BYavinuA4fTTC5oKzJRyRI3_zwv7DHaXMT3eD-tRMKxqvdBsaxpTG0UyCIQ9HrefKTVaE8JD6so1fbGdsMQ3qvjKtSamQYPFWMFhUGj7qmEwzjIqXBXdGEO1j7YTh3jG1fDaXXIvVSffj2_Hl1hCEwuiaPxh7DRQIhZVNV0Gv2IXq1_s7hB6byjXnUdQyJtUZS8xfdCPEP3YHDPe14fRUBZJDJrYsg2XPRGkLrpcPlIDSgDgv9nS_vO19lwX3QN-LmtJ7P2mYgVnG0ELljRAKtZvYhcKfoSyE6R1Amw5XlAiV5OcftdpayJLlqmMStQjakQLuxQVI6KALcCNkHvbOAM5zcAbSCgRNSdZppxlGzePu15ngtBZjL5xSuIEW6Y5NTM6E1v24kUhWUvvi9p42c3r0", true},
-    {"Kitchen", {0xEC, 0x62, 0x60, 0xBC, 0xE8, 0x18}, 5, "1/5/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODE1MzMsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS81In0.HVn4uZAQRIOvE6ZR16YnU9LhEqBmatBh7w2enEuiLxJt51ievhqYdRFW8DLjGW49zXdXP_u-h1LxRyyfkwrTFXY0fH8__3J4D1dLd3WRlfXyztkmCH846GRwMBoi-DLrXg4OW3BoVt2mGYhauOo4OwixXYNUCT1MfPZEpTb8DpcCbVfYHwEdd1y2WrF5BLguKyIuxUG6qwl2Llcti1porh5D78Onwt-OTiAAMyHlXHYg-DTEJR3qYSI2IuBtvU6jwO5G68BHIxL7Ug8GLbTdE0xtuwUvPKeupwyJPFBVFHTSD1s7p7F7PZhzJ5W6NQq4NibUnDHJNY7GrOXG9anApJpveC05xdKnraueZ41uJrg4leQlDRWTkFyeRPLBsX6Z_5TTA2kj4krEDQR4lmR9zilI1gJQV1h06NYwtO4Gx-48uXzhoo8JdckaxAM6m1mXTPOgGU-U2do3Cs3RhlsceUVTOld5rd0so4C4Ui3_X5TDA8uz8noPxyhxSYPKk4aZ8f80MjNsy2SicCxUv4jVhEH3iIzYi3m_0rFzynIf_oQbbVtkGKGyRjp3EEU-g9v-SvHdf4oYyA6kQ6YFe4IC6rABbH1rUp5jvUpJcsmgPqskbPTfnwZPCxWCRk5Jdc2piV5vHwxhguERu7Sg-fVZ4RIl2Er17FRHzvBZokUYWx8", true},
-    {"Bathroom", {0x94, 0x3C, 0xC6, 0xD1, 0x42, 0x2C}, 3, "1/3/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzNzg3MzIsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS8zIn0.a0bD30ukZEU0lcRSPyn6wsXSgL2paInHwrJF4TJl12m9w8JivwD3_cqpsQn6QS_F3AkxHhBl6E2FjJyZEVimZKINMe0tMbmaGy6JejS4RVclgs1lw1t13Ml4BDZEZU9WRm4gSuWPEOeY_cMbbizg1PIx3juKi-_pRjEGMDpcalnQAw0wDbDUmImMNE8ifKV3_JgOsbzAhK_yW_Zn1EB4C8Vvroj7LAeOsBsAja_I1ejh2E0KeAU6aIS1-ZMni6Y3v5JL41RZiEGWhgqhU8XTpgLPfbUbRhAmP08QBRoHd6a7XOMW-uuHiuwTswYgm9wWxHKVWWVfrR--_LR7-26z06H5yUd_wQvegvcXjW30zuwwCKVwN6802jlnDXCXH8-j6WbMf6lVRCLl8MJNQjiAa8IHeW0DxCTDG_xvJ5P8dC5H7qkLa0EnOh65PlN8l2Rbja63MWg5q4hDNNc31AjeFjreJw50QI4Bgg3plpNqHfe9jcxducpMVd8Gn-_FC_isrcAHt1QWRajKtGlZeyOjZgzw6FKFM4UrdwWZ7NKhO1pAmkzCSG79-EbZT-viU9lkTz8WmcayejPt9pvmfPmGwe98EC1TatCB-SYHvmv5MbtnTjjGhaIECmRYiPEDushueAF5gVfJ1gsle8qsYOtOeEEPSz3CCe56HZfP_WUVBqs", false},
-};
+const device_info_t ESPs[] = {ESP_DEVICE_1, ESP_DEVICE_2, ESP_DEVICE_3};
 
-// sleep_enter_time stored in RTC memory
+
+// Sleep_enter_time stored in RTC memory
 static RTC_DATA_ATTR struct timeval sleep_enter_time;
 
 // Main application
@@ -159,15 +155,30 @@ void app_main(void)
     esp_deep_sleep_start();
 }
 
+/**
+ * @brief Configures power management settings.
+ *
+ * This function sets the CPU frequency scaling and enables or disables light sleep
+ * based on the configuration defined in `main.h`.
+ *
+ * - It ensures the system operates efficiently by dynamically adjusting the CPU frequency.
+ * - Light sleep is optionally enabled to reduce power consumption.
+ */
 void configPM(){
     esp_pm_config_esp32_t pm_config = {
-    .max_freq_mhz = MAX_FREQ,
-    .min_freq_mhz = MIN_FREQ, //DFS, enable in menucofig in Power Management
-    .light_sleep_enable = LIGHT_SLEEP_ENABLE,
+    .max_freq_mhz = CONFIG_MAX_FREQ,
+    .min_freq_mhz = CONFIG_MIN_FREQ, //DFS, enable in menucofig in Power Management
+    .light_sleep_enable = CONFIG_LIGHT_SLEEP_ENABLE,
     };
     ESP_ERROR_CHECK(esp_pm_configure(&pm_config));
   }
 
+/**
+ * @brief Prints the current CPU frequency.
+ *
+ * Retrieves and logs the current CPU frequency in MHz. Useful for debugging and verifying
+ * that the power management configuration is applied correctly.
+ */
 void print_cpu_frequency() {
     // Get the current CPU frequency in Hz
     uint32_t cpu_freq_hz = esp_clk_cpu_freq();
@@ -177,7 +188,14 @@ void print_cpu_frequency() {
     ESP_LOGI("CPU_FREQ", "Current CPU frequency: %u MHz", cpu_freq_mhz);
 }
 
-// Function to identify the device based on the MAC ADDRESS
+/**
+ * @brief Identifies the current device based on its MAC address.
+ *
+ * Matches the MAC address of the device with the pre-configured device list in `main.h`.
+ * Sets the device's ID, MQTT topic, security key, and battery information availability.
+ *
+ * @param mac_address Pointer to the MAC address array of the device.
+ */
 void identify_device(const uint8_t* mac_address) {
     for (int i = 0; i < sizeof(ESPs) / sizeof(ESPs[0]); ++i) {
         if (memcmp(mac_address, ESPs[i].mac_address, sizeof(ESPs[i].mac_address)) == 0) {
@@ -197,14 +215,30 @@ void identify_device(const uint8_t* mac_address) {
     ESP_LOGI("*", "Device not recognized.");
 }
 
-void initialize_logging() {
-    esp_log_level_set("*", ESP_LOG_INFO);
-    esp_log_level_set("mqtt", ESP_LOG_INFO);
-    esp_log_level_set("progress", ESP_LOG_INFO);
-    esp_log_level_set("gauge", ESP_LOG_INFO);
+/**
+ * @brief Initializes logging levels for various components based on configuration.
+ *
+ * Sets the logging levels for different modules (e.g., MQTT, application, sensors, progress, gauge)
+ * according to the settings defined in `main.h`. This allows for flexible control
+ * over the verbosity of logs for each component.
+ */
+void initialize_logging(void)
+{
+    // Set logging levels based on configuration
+    esp_log_level_set("*", APP_LOG_LEVEL);
+    esp_log_level_set("mqtt", MQTT_LOG_LEVEL);
+    esp_log_level_set("sensor", SENSOR_LOG_LEVEL);
+    esp_log_level_set("battery", BATTERY_LOG_LEVEL);
+    esp_log_level_set("progress", PROGRESS_LOG_LEVEL);
+    esp_log_level_set("gauge", GAUGE_LOG_LEVEL);
 }
 
-// Configure RTC GPIOs for PIR and Magnetic Switch
+/**
+ * @brief Configures the RTC GPIOs for sensors.
+ *
+ * Initializes the GPIO pins connected to the PIR sensor and the magnetic switch sensor.
+ * Configures the pins as inputs with appropriate pull-up or pull-down resistors.
+ */
 void configure_rtc_gpio() {
     // PIR Sensor Configuration (Assuming it uses pull-down and is active high)
     ESP_ERROR_CHECK(rtc_gpio_init(PIR_PIN));
@@ -219,6 +253,12 @@ void configure_rtc_gpio() {
     ESP_ERROR_CHECK(rtc_gpio_pullup_dis(MAGNETIC_SWITCH_PIN));
 }
 
+/**
+ * @brief Handles the wakeup reason after deep sleep.
+ *
+ * Determines the cause of the system's wakeup (e.g., timer, PIR sensor, or magnetic switch).
+ * Logs the wakeup cause and performs specific actions based on the trigger.
+ */
 void handle_wakeup_reason(){
     esp_sleep_wakeup_cause_t wakeup_reason = esp_sleep_get_wakeup_cause();
     struct timeval now;
@@ -248,6 +288,13 @@ void handle_wakeup_reason(){
     }
 }
 
+/**
+ * @brief Updates the battery status and sends it to the MQTT broker.
+ *
+ * Checks if the interval for sending battery information has elapsed. If so, retrieves
+ * the battery voltage and state of charge (SOC) and publishes the data to the configured
+ * MQTT topic.
+ */
 void updateBatteryStatus() {
     struct timeval now;
     gettimeofday(&now, NULL);
@@ -271,6 +318,12 @@ void updateBatteryStatus() {
     }
 }
 
+/**
+ * @brief Handles the array of PIR events stored in RTC memory.
+ *
+ * If PIR events are stored in memory, this function flushes them to the MQTT broker
+ * as a batch. Resets the event count after successful transmission.
+ */
 void handlePIReventsArray() {
     if (pir_event_count > 0) {
         ESP_LOGI("PIR", "Found %d stored PIR events. Flushing to MQTT.", pir_event_count);
@@ -281,12 +334,28 @@ void handlePIReventsArray() {
     }
 }
 
+/**
+ * @brief Retrieves the current time in milliseconds since the Epoch.
+ *
+ * Uses the system clock to calculate the precise current time, including seconds
+ * and milliseconds. This is used for timestamping events and synchronizing logs.
+ *
+ * @return Current time in milliseconds since the Epoch.
+ */
 uint64_t get_current_time_in_ms() {
     struct timeval now;
     gettimeofday(&now, NULL);
     return (uint64_t)(now.tv_sec) * 1000 + (now.tv_usec) / 1000; // Convert to milliseconds
 }
 
+/**
+ * @brief Calculates the time since the system booted in milliseconds.
+ *
+ * Retrieves the time elapsed since the system booted, based on the high-resolution
+ * timer. Useful for measuring durations or synchronizing tasks.
+ *
+ * @return Time since boot in milliseconds.
+ */
 uint64_t get_time_since_boot_in_ms() {
     return esp_timer_get_time() / 1000; // Convert microseconds to milliseconds
 }
