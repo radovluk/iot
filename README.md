@@ -71,6 +71,29 @@ The configuration is primarily defined in `main.h`. Key configuration settings i
 - **BATTERY_LOG_LEVEL**: Battery-related logs.
 - **WAKEUP_STUB_LOG_LEVEL**: Logging in the wake-up stub (true or false).
 
+## MQTT Connection Status Handling
+
+This project uses the `mqtt_connected` variable to track the connection status with the MQTT broker and handle data transmission reliability.
+
+### `mqtt_connected` Overview
+
+- **Type**: `bool`
+- **Purpose**: Indicates the connection status of the MQTT client.
+  - `true` when connected to the MQTT broker.
+  - `false` when disconnected or unable to connect.
+
+### Functionality
+
+1. **Connection Tracking**: The `mqtt_connected` variable is updated in the `mqtt_event_handler()` function based on the MQTT events:
+   - `MQTT_EVENT_CONNECTED`: Sets `mqtt_connected` to `true` and attempts to send any stored data.
+   - `MQTT_EVENT_DISCONNECTED` and `MQTT_EVENT_ERROR`: Sets `mqtt_connected` to `false`.
+
+2. **Storing Data When Disconnected**: 
+   - When `mqtt_connected` is `false`, PIR sensor events are stored locally in the `pir_events` array instead of being sent to the broker.
+   
+3. **Sending Stored Data Upon Reconnection**: 
+   - When the MQTT broker connection is restored (`mqtt_connected` becomes `true`), all stored events are sent to ensure no data is lost.
+
 ## Wake-Up Stub Functionality
 
 The wake-up stub is a minimal piece of code that runs immediately upon the ESP32 waking from deep sleep. It operates in the RTC fast memory, allowing for efficient power consumption while executing basic tasks before the main application starts.

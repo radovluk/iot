@@ -56,6 +56,9 @@ const device_info_t ESPs[] = {ESP_DEVICE_1, ESP_DEVICE_2, ESP_DEVICE_3};
 // Sleep_enter_time stored in RTC memory
 static RTC_DATA_ATTR struct timeval sleep_enter_time;
 
+// Status of connection of the mqtt broker.
+bool mqtt_broker_connected = false;
+
 // Main application
 void app_main(void)
 {
@@ -92,6 +95,7 @@ void app_main(void)
 
     ESP_LOGI("progress", "Starting MQTT");
     start_mqtt();
+    ESP_LOGI("progress", "MQTT broker connected status: %d", mqtt_broker_connected);
 
     // Synchronize RTC time and actual time
     actual_time_at_last_sync = get_current_time_in_ms();
@@ -341,5 +345,5 @@ uint64_t get_current_time_in_ms() {
  * @return Time since boot in milliseconds.
  */
 uint64_t get_time_since_boot_in_ms() {
-    return esp_timer_get_time() / 1000; // Convert microseconds to milliseconds
+    return (my_rtc_time_get_us() / 1000); // Convert microseconds to milliseconds
 }

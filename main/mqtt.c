@@ -55,22 +55,27 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     case MQTT_EVENT_CONNECTED:
       ESP_LOGI("mqtt", "MQTT_EVENT_CONNECTED\n");
       xEventGroupSetBits(mqtt_event_group, CONNECTED_BIT);
+      mqtt_broker_connected = true;
       break;
 
     case MQTT_EVENT_DISCONNECTED:
       ESP_LOGI("mqtt", "MQTT_EVENT_DISCONNECTED\n");
+      mqtt_broker_connected = false;
       break;
 
     case MQTT_EVENT_SUBSCRIBED:
       ESP_LOGI("mqtt", "MQTT_EVENT_SUBSCRIBED, msg_id=%d\n", data->msg_id);
+      mqtt_broker_connected = false;
       break;
 
     case MQTT_EVENT_UNSUBSCRIBED:
       ESP_LOGI("mqtt", "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d\n", data->msg_id);
+      mqtt_broker_connected = false;
       break;
 
     case MQTT_EVENT_PUBLISHED:
       ESP_LOGI("mqtt", "MQTT_EVENT_PUBLISHED, msg_id=%d\n", data->msg_id);
+      mqtt_broker_connected = false;
       break;
 
     case MQTT_EVENT_DATA:
@@ -119,7 +124,6 @@ void start_mqtt(void) {
   mqtt_cfg.credentials.authentication.password = this_device.device_key;
   ESP_LOGI("mqtt", "Device Key: %s", this_device.device_key);
 
-
   ESP_LOGI("mqtt", "[APP] Free memory: %d bytes", esp_get_free_heap_size());
   mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
   esp_mqtt_client_register_event(mqtt_client, MQTT_EVENT_ANY, mqtt_event_handler, NULL);
@@ -128,8 +132,15 @@ void start_mqtt(void) {
   esp_mqtt_client_start(mqtt_client);
   ESP_LOGI("mqtt", "Note free memory: %d bytes", esp_get_free_heap_size());
   ESP_LOGI("mqtt", "Waiting for connection to MQTT\n");
-  xEventGroupWaitBits(mqtt_event_group, CONNECTED_BIT, false, true, portMAX_DELAY);
-  ESP_LOGI("mqtt", "Connected to MQTT\n");
+
+  // Wait for connection with a timeout of 10 seconds
+  EventBits_t bits = xEventGroupWaitBits(mqtt_event_group, CONNECTED_BIT, false, true, pdMS_TO_TICKS(10000));
+  if (bits & CONNECTED_BIT) {
+    ESP_LOGI("mqtt", "Connected to MQTT\n");
+  } else {
+    ESP_LOGI("mqtt", "Could not connect to MQTT broker\n");
+    mqtt_broker_connected = false;
+  }
 }
 
 /**
@@ -148,23 +159,35 @@ void start_mqtt(void) {
  */
 void sendPIReventToMQTT(void) {
   time_t now = 0;
-
   char msg[150];
   time(&now);
   const char* room_id = this_device.room_id;
 
-  // Format the message with the correct room ID
-  int size = snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"PIR\",\"values\":[{\"timestamp\":%llu, \"roomID\":\"%s\"}]}]}", 
-                      (unsigned long long)(now * 1000), room_id);
+  if (mqtt_broker_connected) {
+    // Format the message with the correct room ID
+    int size = snprintf(msg, sizeof(msg), "{\"sensors\":[{\"name\":\"PIR\",\"values\":[{\"timestamp\":%llu, \"roomID\":\"%s\"}]}]}",
+                        (unsigned long long)(now * 1000), room_id);
 
-  ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, this_device.device_topic);
-  auto err = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, size, 1, 0);
-  if (err == -1) {
-    printf("Error while publishing to mqtt\n");
-    ESP_LOGI("functions", "SendToMqttFunction terminated");
-    return ESP_FAIL;
+    ESP_LOGI("mqtt", "Sent <%s> to topic %s", msg, this_device.device_topic);
+    int err = esp_mqtt_client_publish(mqtt_client, this_device.device_topic, msg, size, 1, 0);
+    if (err == -1) {
+      ESP_LOGE("mqtt", "Error while publishing to mqtt");
+      ESP_LOGI("functions", "SendToMqttFunction terminated");
+    }
+  } else {
+    // Store the event in pir_events[]
+    if (pir_event_count < MAX_PIR_EVENTS) {
+      pir_events[pir_event_count].timestamp = (unsigned long long)(now * 1000);
+      // Copy device info
+      pir_events[pir_event_count].device = this_device;
+      pir_event_count++;
+      ESP_LOGI("PIR", "Stored PIR event locally, total stored events: %d", pir_event_count);
+    } else {
+      ESP_LOGW("PIR", "PIR event buffer is full, cannot store more events");
+    }
   }
 }
+
 
 /**
  * @brief Sends a magnetic switch event to the MQTT broker.
@@ -181,6 +204,11 @@ void sendPIReventToMQTT(void) {
  * @note This function is specific to devices equipped with a magnetic switch sensor.
  */
 void sendMagneticSwitchEventToMQTT(void) {
+    if (!mqtt_broker_connected) {
+      ESP_LOGI("PIR", "Cannot send stored PIR events, MQTT is not connected");
+      return;
+    }
+    
     time_t now = 0;
     char msg[150];
     time(&now);
@@ -211,6 +239,11 @@ void sendMagneticSwitchEventToMQTT(void) {
  *       battery measurements before calling this function.
  */
 void sendBatteryStatusToMQTT(void) {
+  if (!mqtt_broker_connected) {
+      ESP_LOGI("PIR", "Cannot send stored PIR events, MQTT is not connected");
+      return;
+  }
+
   time_t now = 0;
 
   char msg[150];
@@ -243,6 +276,11 @@ void sendBatteryStatusToMQTT(void) {
  */
 void sendPIReventsToMQTT()
 {
+    if (!mqtt_broker_connected) {
+      ESP_LOGI("PIR", "Cannot send stored PIR events, MQTT is not connected");
+      return;
+    }
+
     // Build the JSON message
     char msg[1024]; // Adjust size as needed
     char values[512] = ""; // Buffer for "values" array
@@ -276,7 +314,7 @@ void sendPIReventsToMQTT()
         ESP_LOGI("functions", "SendToMqttFunction terminated");
         return ESP_FAIL;
     } else {
-        // Reset the PIR event count
+        // Reset the PIR event count if success
         pir_event_count = 0;
     }
 }

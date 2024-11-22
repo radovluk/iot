@@ -2,22 +2,22 @@
 
 // --------------------------------- Configuration ---------------------------------
 
-// #define EXAMPLE_ESP_WIFI_SSID      "CAPS-Seminar-Room"
-// #define EXAMPLE_ESP_WIFI_PASS      "caps-schulz-seminar-room-wifi"
-// #define SNTP_SERVER_NAME           "ntp1.in.tum.de"
-// #define MQTT_BROKER                "131.159.85.125" 
+#define EXAMPLE_ESP_WIFI_SSID      "CAPS-Seminar-Room"
+#define EXAMPLE_ESP_WIFI_PASS      "caps-schulz-seminar-room-wifi"
+#define SNTP_SERVER_NAME           "ntp1.in.tum.de"
+#define MQTT_BROKER                "131.159.85.125" 
 
-#define EXAMPLE_ESP_WIFI_SSID      "vbMobile24G"
-#define EXAMPLE_ESP_WIFI_PASS      "vbMobile"
-#define SNTP_SERVER_NAME            "pool.ntp.org"
-#define MQTT_BROKER                "192.168.81.143"
+// #define EXAMPLE_ESP_WIFI_SSID      "vbMobile24G"
+// #define EXAMPLE_ESP_WIFI_PASS      "vbMobile"
+// #define SNTP_SERVER_NAME            "pool.ntp.org"
+// #define MQTT_BROKER                "192.168.81.143"
 
 // Device Configuration
-#define CONFIG_MAX_PIR_EVENTS              2               // < Maximum number of PIR events stored in RTC memory.
-#define CONFIG_BATTERY_INFO_INTERVAL_SEC   180             // < Interval (in seconds) to send battery information to MQTT.
-#define CONFIG_WAKEUP_INTERVAL_SEC         20              // < Interval (in seconds) for automatic wakeup.
-#define CONFIG_SENSOR_INACTIVE_DELAY_MS    3000            // < Delay (in milliseconds) for sensors to become inactive after triggering.
-#define CONFIG_SENSOR_INACTIVE_DELAY_IN_WAKE_UP_STUB_SEC 4 // < Waiting time in seconds for inactive sensors in wake-up stub.
+#define CONFIG_MAX_PIR_EVENTS              10                // < Maximum number of PIR events stored in RTC memory.
+#define CONFIG_BATTERY_INFO_INTERVAL_SEC   60*60            // < Interval (in seconds) to send battery information to MQTT.
+#define CONFIG_WAKEUP_INTERVAL_SEC         10*60            // < Interval (in seconds) for automatic wakeup to send any stored PIR events to MQTT.
+#define CONFIG_SENSOR_INACTIVE_DELAY_MS    3000             // < Delay (in milliseconds) for sensors to become inactive after triggering.
+#define CONFIG_SENSOR_INACTIVE_DELAY_IN_WAKE_UP_STUB_SEC 2  // < Waiting time in seconds for inactive sensors in wake-up stub.
 
 // GPIO Configuration
 #define CONFIG_PIR_PIN 27                  // GPIO for PIR sensor
@@ -27,13 +27,15 @@
 #define CONFIG_MAX_FREQ 240                // Maximum CPU frequency in MHz
 #define CONFIG_MIN_FREQ 80                 // Minimum CPU frequency in MHz
 
-// List of ESPs (name, mac adress, topic, key, battery info available)
+// List of ESPs (name, mac adress, topic, key, battery info available, room_id)
 #define ESP_DEVICE_1 {"Living Room", {0xEC, 0x62, 0x60, 0xBC, 0xE8, 0x50}, 4, "1/4/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODAxNTYsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS80In0.pz7e__yvBeb-xrVAXNlY_6-GPg0PBvrMOzxsG9re_ohsAMgKnVddBFwaaRB15P07J-D4_s_1KpHDRNw0trIfXdnPTFaV0ibKzk2C-j6EGXlBRFi7POP0p_QMobHk5DtI54j9fpbxtAvl7uwQCWJlBY4w0rmynlJrEN5TRvu2veMtvN8HPOoYpw4k1L_jif_w0Jli-MM-aDhhuRFUO07hwqV1qoxArm0xcd4EW0u0OWM0Uvs9vW51Vr_BDb7-TgvywJQO9R8DCjXk3BBPG8BYavinuA4fTTC5oKzJRyRI3_zwv7DHaXMT3eD-tRMKxqvdBsaxpTG0UyCIQ9HrefKTVaE8JD6so1fbGdsMQ3qvjKtSamQYPFWMFhUGj7qmEwzjIqXBXdGEO1j7YTh3jG1fDaXXIvVSffj2_Hl1hCEwuiaPxh7DRQIhZVNV0Gv2IXq1_s7hB6byjXnUdQyJtUZS8xfdCPEP3YHDPe14fRUBZJDJrYsg2XPRGkLrpcPlIDSgDgv9nS_vO19lwX3QN-LmtJ7P2mYgVnG0ELljRAKtZvYhcKfoSyE6R1Amw5XlAiV5OcftdpayJLlqmMStQjakQLuxQVI6KALcCNkHvbOAM5zcAbSCgRNSdZppxlGzePu15ngtBZjL5xSuIEW6Y5NTM6E1v24kUhWUvvi9p42c3r0", true, "livingroombedarea"}
 #define ESP_DEVICE_2 {"Kitchen", {0xEC, 0x62, 0x60, 0xBC, 0xE8, 0x18}, 5, "1/5/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzODE1MzMsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS81In0.HVn4uZAQRIOvE6ZR16YnU9LhEqBmatBh7w2enEuiLxJt51ievhqYdRFW8DLjGW49zXdXP_u-h1LxRyyfkwrTFXY0fH8__3J4D1dLd3WRlfXyztkmCH846GRwMBoi-DLrXg4OW3BoVt2mGYhauOo4OwixXYNUCT1MfPZEpTb8DpcCbVfYHwEdd1y2WrF5BLguKyIuxUG6qwl2Llcti1porh5D78Onwt-OTiAAMyHlXHYg-DTEJR3qYSI2IuBtvU6jwO5G68BHIxL7Ug8GLbTdE0xtuwUvPKeupwyJPFBVFHTSD1s7p7F7PZhzJ5W6NQq4NibUnDHJNY7GrOXG9anApJpveC05xdKnraueZ41uJrg4leQlDRWTkFyeRPLBsX6Z_5TTA2kj4krEDQR4lmR9zilI1gJQV1h06NYwtO4Gx-48uXzhoo8JdckaxAM6m1mXTPOgGU-U2do3Cs3RhlsceUVTOld5rd0so4C4Ui3_X5TDA8uz8noPxyhxSYPKk4aZ8f80MjNsy2SicCxUv4jVhEH3iIzYi3m_0rFzynIf_oQbbVtkGKGyRjp3EEU-g9v-SvHdf4oYyA6kQ6YFe4IC6rABbH1rUp5jvUpJcsmgPqskbPTfnwZPCxWCRk5Jdc2piV5vHwxhguERu7Sg-fVZ4RIl2Er17FRHzvBZokUYWx8", true, "kitchen"}
 #define ESP_DEVICE_3 {"Bathroom", {0x94, 0x3C, 0xC6, 0xD1, 0x42, 0x2C}, 3, "1/3/data", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAzNzg3MzIsImlzcyI6ImlvdHBsYXRmb3JtIiwic3ViIjoiMS8zIn0.a0bD30ukZEU0lcRSPyn6wsXSgL2paInHwrJF4TJl12m9w8JivwD3_cqpsQn6QS_F3AkxHhBl6E2FjJyZEVimZKINMe0tMbmaGy6JejS4RVclgs1lw1t13Ml4BDZEZU9WRm4gSuWPEOeY_cMbbizg1PIx3juKi-_pRjEGMDpcalnQAw0wDbDUmImMNE8ifKV3_JgOsbzAhK_yW_Zn1EB4C8Vvroj7LAeOsBsAja_I1ejh2E0KeAU6aIS1-ZMni6Y3v5JL41RZiEGWhgqhU8XTpgLPfbUbRhAmP08QBRoHd6a7XOMW-uuHiuwTswYgm9wWxHKVWWVfrR--_LR7-26z06H5yUd_wQvegvcXjW30zuwwCKVwN6802jlnDXCXH8-j6WbMf6lVRCLl8MJNQjiAa8IHeW0DxCTDG_xvJ5P8dC5H7qkLa0EnOh65PlN8l2Rbja63MWg5q4hDNNc31AjeFjreJw50QI4Bgg3plpNqHfe9jcxducpMVd8Gn-_FC_isrcAHt1QWRajKtGlZeyOjZgzw6FKFM4UrdwWZ7NKhO1pAmkzCSG79-EbZT-viU9lkTz8WmcayejPt9pvmfPmGwe98EC1TatCB-SYHvmv5MbtnTjjGhaIECmRYiPEDushueAF5gVfJ1gsle8qsYOtOeEEPSz3CCe56HZfP_WUVBqs", false, "bathroom"}
 
 #define CONFIG_LIGHT_SLEEP_ENABLE false // < Whether light sleep mode is enabled.
 
+// The status of mqtt broker connection, handles the monday problem
+extern bool mqtt_broker_connected;
 // --------------------------------- Logging Configuration ---------------------------------
 
 /** @brief Logging level for general application logs. */
@@ -53,9 +55,6 @@
 
 /** @brief Logging level for gauge module. */
 #define GAUGE_LOG_LEVEL      ESP_LOG_INFO
-
-/** @brief Logging level for wakeup stub logging. (false or true) */
-#define WAKEUP_STUB_LOG_LEVEL true
 
 // --------------------------------- Struct Definitions ---------------------------------
 
